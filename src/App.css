@@ -1,0 +1,103 @@
+.top-banner {
+    background: url('../assets/static/profile.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh; /* Full viewport height */
+    /*the next two lines are used for android support*/
+    overflow: hidden;
+}
+
+/*h1,h2,h3,h4,h5,h6 {*/
+/*  font-family: 'Permanent Marker', cursive;*/
+/*  color: #e0e0e0;*/
+/*  text-shadow: #8e8e8e 1px 1px;*/
+/*}*/
+
+.title-h1,.title-h2,.title-h3,.title-h4,.title-h5,.title-h6 {
+    font-family: 'Permanent Marker', cursive;
+    color: #e0e0e0;
+    text-shadow: #8e8e8e 1px 1px;
+}
+
+/*.hero {*/
+/*  position: absolute;*/
+/*  top: 50%;*/
+/*}*/
+
+.lato-thin {
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.lato-black {
+    font-size: 2rem;
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+a {
+    color: #e0e0e0 !important;
+    text-decoration: none;
+    text-shadow: #8e8e8e 1px 1px;
+}
+
+a:hover {
+    color: #c5c5c5 !important;
+}
+
+.ReactModal__Html--open,
+.ReactModal__Body--open {
+    overflow: hidden; /* prevents background page from scrolling when the modal is open */
+}
+
+.ReactModal__Overlay {
+    position: fixed;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ReactModal__Overlay div li {
+    font-size: 1rem;
+}
+
+.ReactModal__Content {
+    background: white;
+    width: 40rem;
+    max-width: calc(100vw - 2rem);
+    max-height: calc(100vh - 2rem);
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.25);
+    overflow-y: auto;
+    position: relative;
+}
+
+.modal-close-btn {
+    cursor: pointer;
+    top: 1.5rem;
+    right: 1.5rem;
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+}
+
+@media (max-width: 359px) {
+    ul {
+        font-size: 1rem;
+    }
+}
+@media (min-width: 360px) {
+    ul {
+        font-size: 1.8rem;
+    }
+}
+
