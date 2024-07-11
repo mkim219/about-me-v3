@@ -53,7 +53,7 @@ const ContactEmail = () => {
     return (
         <div className="container my-4" id="contact">
             <div className="row d-flex justify-content-center">
-                <h1 className="d-flex justify-content-center title-h1">Contact</h1>
+                <h1 className="d-flex justify-content-center">Contact</h1>
                 <div className="col-12 col-lg-6">
                     <form onSubmit={handleSubmit}>
                         <div className="form-group mb-2">
