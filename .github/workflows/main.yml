@@ -1,0 +1,18 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: create .env file
+        with:
+          REACT_APP_EMAIL_JS_SERVICE_ID: ${{ process.env.REACT_APP_EMAIL_JS_SERVICE_ID }}
+          REACT_APP_EMAIL_JS_TEMPLATE_ID: ${{  process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID }}
+          REACT_APP_PUBLIC_KEY: ${{ process.env.REACT_APP_PUBLIC_KEY }}
+          REACT_APP_PRIVATE_KEY: ${{ process.env.REACT_APP_EMAIL_JS_SERVICE_ID }}
+          REACT_APP_AUTO_REPLY: ${{ rocess.env.REACT_APP_AUTO_REPLY }}
