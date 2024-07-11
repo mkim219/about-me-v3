@@ -23,13 +23,17 @@ jobs:
 
       - name: Create .env file
         run: |
-          echo "process.env.REACT_APP_EMAIL_JS_SERVICE_ID=${{ secrets.REACT_APP_EMAIL_JS_SERVICE_ID }}" >> .env
-          echo "process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID=${{ secrets.REACT_APP_EMAIL_JS_TEMPLATE_ID }}" >> .env
-          echo "process.env.REACT_APP_PUBLIC_KEY=${{ secrets.REACT_APP_PUBLIC_KEY }}" >> .env
-          echo "process.env.REACT_APP_PRIVATE_KEY=${{ secrets.REACT_APP_PRIVATE_KEY }}" >> .env
-          echo "process.env.REACT_APP_AUTO_REPLY=${{ secrets.REACT_APP_AUTO_REPLY }}" >> .env
+          echo "REACT_APP_EMAIL_JS_SERVICE_ID=${{ secrets.REACT_APP_EMAIL_JS_SERVICE_ID }}" >> .env
+          echo "REACT_APP_EMAIL_JS_TEMPLATE_ID=${{ secrets.REACT_APP_EMAIL_JS_TEMPLATE_ID }}" >> .env
+          echo "REACT_APP_AUTO_REPLY=${{ secrets.REACT_APP_AUTO_REPLY }}" >> .env
+          echo "REACT_APP_PUBLIC_KEY=${{ secrets.REACT_APP_PUBLIC_KEY }}" >> .env
 
       - name: Build project
+        env:
+          REACT_APP_EMAIL_JS_SERVICE_ID: ${{ secrets.REACT_APP_EMAIL_JS_SERVICE_ID }}
+          REACT_APP_EMAIL_JS_TEMPLATE_ID: ${{ secrets.REACT_APP_EMAIL_JS_TEMPLATE_ID }}
+          REACT_APP_AUTO_REPLY: ${{ secrets.REACT_APP_AUTO_REPLY }}
+          REACT_APP_PUBLIC_KEY: ${{ secrets.REACT_APP_PUBLIC_KEY }}
         run: npm run build
 
       - name: Deploy to GitHub Pages
