@@ -5,6 +5,7 @@
     -o-background-size: cover;
     background-size: cover;
     height: 100vh; /* Full viewport height */
+    width: 100%;
     /*the next two lines are used for android support*/
     overflow: hidden;
 }

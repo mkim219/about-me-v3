@@ -167,7 +167,7 @@ function App() {
                 </ul>
             </div>
 
-            {/*opacity overlay*/}
+            {/*overlay*/}
             <div className={classNames("position-fixed bg-secondary p-2 bg-opacity-50 vh-100 w-100",
                 { "d-none": !isSideNavOpen },)}
                  style={{ height: "100%", zIndex: "900" }}
@@ -178,12 +178,11 @@ function App() {
                 <div className="row">
                     <div className="col-12 top-banner">
                         <div
-                            ref={ref}
                             className="position-absolute top-50 start-50 translate-middle-y p-2"
                         >
-                            <h1 className="display-3 title-h1 fly-in-left">Minsu
+                            <h1 className={`display-3 title-h1 ${isMobile ? 'fade-in' : 'fly-in-left'}`}>Minsu
                                 Kim</h1>
-                            <h3 className="title-h3 fly-in-right">An adventurous
+                            <h3 className={`title-h3 ${isMobile ? 'fade-in' : 'fly-in-right'}`}>An adventurous
                                 programmer involved in the startup scene</h3>
                             <ul className="nav">
                                 <li className="nav-item fade-in">
@@ -191,7 +190,7 @@ function App() {
                                         <i className="fa-solid fa-file-pdf"></i>
                                     </a>
                                 </li>
-                                <li className="nav-item fade-in">
+                                <li className="nav-item">
                                     <a className="nav-link" href="tel:82-10-9731-9106">
                                         <i className="fa fa-phone"></i>
                                     </a>
