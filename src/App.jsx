@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from 'react-dom/client';
 import classNames from "classnames";
 import { TypeAnimation } from 'react-type-animation';
@@ -20,7 +20,8 @@ function App() {
     const [isSideNavOpen, setSideNavOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(mobileCheck());
     const [isContactClick, setContactClick] = useState(false);
-
+    const [isVisible, setIsVisible] = useState(false);
+    const ref = useRef(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -28,6 +29,27 @@ function App() {
                 setScrolled(true);
             } else {
                 setScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (ref.current) {
+                const top = ref.current.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                // Adjust this value to trigger the animation at the desired scroll position
+                if (top < windowHeight * 1.2) {
+                    setIsVisible(true);
+                } else {
+                    setIsVisible(false);
+                }
             }
         };
 
@@ -118,7 +140,6 @@ function App() {
                     </div>
                 </div>
 
-
                 <hr className="text-white"/>
                 <ul className="navbar-nav flex-column text-muted">
                     <li className="nav-item">
@@ -156,32 +177,37 @@ function App() {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-12 top-banner">
-                        <div className="position-absolute top-50 start-50 translate-middle-y p-2">
-                            <h1 className="display-3 title-h1">Minsu Kim</h1>
-                            <h3 className="title-h3">An adventerous programmer involved in the startup scene</h3>
+                        <div
+                            ref={ref}
+                            className="position-absolute top-50 start-50 translate-middle-y p-2"
+                        >
+                            <h1 className="display-3 title-h1 fly-in-left">Minsu
+                                Kim</h1>
+                            <h3 className="title-h3 fly-in-right">An adventurous
+                                programmer involved in the startup scene</h3>
                             <ul className="nav">
-                                <li className="nav-item">
-                                    <a className="nav-link" href="./assets/static/Minsu-kim-resume.pdf" target="_blank">
+                                <li className="nav-item fade-in">
+                                <a className="nav-link" href="./assets/static/Minsu-kim-resume.pdf" target="_blank">
                                         <i className="fa-solid fa-file-pdf"></i>
                                     </a>
                                 </li>
-                                <li className="nav-item">
+                                <li className="nav-item fade-in">
                                     <a className="nav-link" href="tel:82-10-9731-9106">
                                         <i className="fa fa-phone"></i>
                                     </a>
                                 </li>
-                                <li className="nav-item">
+                                <li className="nav-item fade-in">
                                     <a className="nav-link" href="https://www.linkedin.com/in/minsu-kim-37a553156"
                                        target="_blank">
                                         <i className="fa-brands fa-linkedin"></i>
                                     </a>
                                 </li>
-                                <li className="nav-item">
+                                <li className="nav-item fade-in">
                                     <a className="nav-link" href="https://github.com/mkim219" target="_blank">
                                         <i className="fa-brands fa-github"></i>
                                     </a>
                                 </li>
-                                <li className="nav-item">
+                                <li className="nav-item fade-in">
                                     <a className="nav-link" href="https://youtu.be/9NA4DgGGYWg" target="_blank">
                                         <i className="fa-brands fa-youtube"><
                                     /i>
@@ -203,9 +229,9 @@ function App() {
                     <div className="row mb-5">
                         <div className="col-lg-12 mb-4">
                             <div className="mb-3">
-                                <h1 className="mb-2"><strong>Reliable and Trustworthy Service</strong></h1>
+                                <h1 ref={ref} className={`mb-2 ${isVisible ? 'fly-in' : 'hidden'}`}><strong>Trust and Professionalism Guaranteed</strong></h1>
                                 <div className="d-inline-block justify-content-center col-lg-5 col-sm-10 mb-3">
-                                    <p className="explain-quote">
+                                    <p ref={ref} className={`explain-quote ${isVisible ? 'fly-in-right' : ''}`}>
                                         Customer satisfaction is my top priority. To ensure high-quality
                                         service, I have honed my skills and principles to deliver exceptional results.
                                     </p>
@@ -213,7 +239,7 @@ function App() {
                             </div>
 
                             <div className="row d-inline-flex justify-content-center">
-                                <div className="col-11 col-lg-4">
+                                <div ref={ref} className={`col-11 col-lg-4 ${isVisible ? 'fly-in-left' : ''}`}>
                                     <div className="mb-3">
                                         <img src="./assets/static/icon/tool-svgrepo-com.png"
                                              style={{ width: "3rem", height: "3rem" }}/>
@@ -223,13 +249,13 @@ function App() {
                                     </h2>
                                     <p className="explain-quote mb-2">
                                         I will enhance your web-based software to maintain its efficiency and
-                                        competitiveness in the OAP.
+                                        competitiveness.
                                         Leveraging well-established DevOps processes, I can deploy urgent updates and
                                         release new functional modules.
                                     </p>
                                 </div>
 
-                                <div className="col-11 col-lg-4">
+                                <div ref={ref} className={`col-11 col-lg-4 ${isVisible ? 'fly-in' : 'hidden'}`}>
                                     <div className="mb-3">
                                         <img src="./assets/static/icon/database-svgrepo-com.png"
                                              style={{ width: "3rem", height: "3rem" }}/>
@@ -246,7 +272,7 @@ function App() {
                                     </p>
                                 </div>
 
-                                <div className="col-11 col-lg-4">
+                                <div ref={ref} className={`col-11 col-lg-4 ${isVisible ? 'fly-in-right' : ''}`}>
                                     <div className="mb-3">
                                         <img src="./assets/static/icon/monitor-svgrepo-com.png"
                                              style={{ width: "3rem", height: "3rem" }}/>
@@ -268,7 +294,7 @@ function App() {
             </div>
 
             {/*Tools that I'm using*/}
-            <div className="container bg-dark mb-5">
+            <div ref={ref} className={`container bg-dark mb-5 ${isVisible ? 'fly-in' : 'hidden'}`}>
                 <div className="d-flex justify-content-center mb-3">
                     <h1>Tools for Today and Beyond</h1>
                 </div>
@@ -419,12 +445,12 @@ function App() {
 
             {/*Project*/}
             <h1 className="d-flex justify-content-center mb-3 h1" id="projects">The Projects I'm Proud Of</h1>
-            <p className="d-flex justify-content-center explain-quote">Milestones in My Professional Journey</p>
+            <p className="d-flex justify-content-center explain-quote mb-3">Milestones in My Professional Journey</p>
             <div className="container bg-dark d-block d-lg-none card">
                 <div className="row">
 
                     {/*card 1*/}
-                    <div className="col-lg-4 mb-4">
+                    <div ref={ref} className={`col-lg-4 mb-4 ${isVisible ? 'fly-in-left' : ''}`}>
                         <div className="card w-100">
                             <img className="card-img-top" src="./assets/static/OAP/oap-box-logo.jpeg"
                                  alt="Card image cap"/>
@@ -452,7 +478,7 @@ function App() {
                     </div>
 
                     {/*card 2*/}
-                    <div className="col-lg-4 mb-4">
+                    <div ref={ref} className={`col-lg-4 mb-4 ${isVisible ? 'fly-in' : 'hidden'}`}>
                         <div className="card">
                             <div className="d-block align-content-center bg-dark" style={{ height: "414px" }}>
                                 <img className="card-img-top img-fluid "
@@ -482,7 +508,7 @@ function App() {
                     </div>
 
                     {/*card 3*/}
-                    <div className="col-lg-4 mb-4">
+                    <div ref={ref} className={`col-lg-4 mb-4 ${isVisible ? 'fly-in-right' : ''}`}>
                         <div className="card">
                             <div className="d-block align-content-center bg-dark" style={{ height: "414px" }}>
                                 <img className="card-img-top" src="./assets/static/EngineX/Picture1.png"
@@ -515,7 +541,7 @@ function App() {
 
             {/*for browser*/}
 
-            <div className="d-none d-md-none d-lg-block projcard-container">
+            <div  className="d-none d-md-none d-lg-block projcard-container">
                 {/*card 1*/}
                 <div className="projcard projcard-blue">
                     <div className="projcard-innerbox">
@@ -579,8 +605,10 @@ function App() {
                             </div>
                             <div className="projcard-bar"></div>
                             <div className="projcard-description">
-                                Cleantopia Excel GUI Converter is a user-friendly Windows Forms application designed to streamline the process of transforming Excel files.
-                                Through meticulous planning and client consultations, a robust application was developed to simplify the conversion of Excel files,
+                                Cleantopia Excel GUI Converter is a user-friendly Windows Forms application designed to
+                                streamline the process of transforming Excel files.
+                                Through meticulous planning and client consultations, a robust application was developed
+                                to simplify the conversion of Excel files,
                                 making it accessible to users with varying levels of technical expertise.
                             </div>
                             <div className="projcard-tagbox">
@@ -591,7 +619,6 @@ function App() {
                         </div>
                     </div>
                 </div>
-
                 {/*card 3*/}
                 <div className="projcard projcard-green">
                     <div className="projcard-innerbox">
@@ -632,7 +659,6 @@ function App() {
                         </div>
                     </div>
                 </div>
-
             </div>
 
 
