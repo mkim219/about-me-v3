@@ -8,12 +8,32 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: create .env file
-        uses:   mkim219/create-env-file@v1
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          REACT_APP_EMAIL_JS_SERVICE_ID: ${{ process.env.REACT_APP_EMAIL_JS_SERVICE_ID }}
-          REACT_APP_EMAIL_JS_TEMPLATE_ID: ${{  process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID }}
-          REACT_APP_PUBLIC_KEY: ${{ process.env.REACT_APP_PUBLIC_KEY }}
-          REACT_APP_PRIVATE_KEY: ${{ process.env.REACT_APP_EMAIL_JS_SERVICE_ID }}
-          REACT_APP_AUTO_REPLY: ${{ rocess.env.REACT_APP_AUTO_REPLY }}
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Create .env file
+        run: |
+          echo "REACT_APP_EMAIL_JS_SERVICE_ID=${{ secrets.REACT_APP_EMAIL_JS_SERVICE_ID }}" >> .env
+          echo "REACT_APP_EMAIL_JS_TEMPLATE_ID=${{ secrets.REACT_APP_EMAIL_JS_TEMPLATE_ID }}" >> .env
+          echo "REACT_APP_PUBLIC_KEY=${{ secrets.REACT_APP_PUBLIC_KEY }}" >> .env
+          echo "REACT_APP_PRIVATE_KEY=${{ secrets.REACT_APP_PRIVATE_KEY }}" >> .env
+          echo "REACT_APP_AUTO_REPLY=${{ secrets.REACT_APP_AUTO_REPLY }}" >> .env
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
