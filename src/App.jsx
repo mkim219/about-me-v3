@@ -119,7 +119,7 @@ function App() {
                     </button>
                 </nav>
             </div>
-
+            {/*side nav*/}
             <div
                 className={classNames("position-fixed bg-dark top-50 end-0 translate-middle-y bg-light p-3 shadow h-100",
                     { "d-none": !isSideNavOpen },
@@ -229,9 +229,9 @@ function App() {
                     <div className="row mb-5">
                         <div className="col-lg-12 mb-4">
                             <div className="mb-3">
-                                <h1 ref={ref} className={`mb-2 ${isVisible ? 'fly-in' : 'hidden'}`}><strong>Trust and Professionalism Guaranteed</strong></h1>
+                                <h1 ref={ref} className={`mb-2 ${!isMobile &&(isVisible ? 'fly-in-left' : '')}`}><strong>Trust and Professionalism Guaranteed</strong></h1>
                                 <div className="d-inline-block justify-content-center col-lg-5 col-sm-10 mb-3">
-                                    <p ref={ref} className={`explain-quote ${isVisible ? 'fly-in-right' : ''}`}>
+                                    <p ref={ref} className={`explain-quote ${!isMobile && (isVisible ? 'fly-in-right' : '')}`}>
                                         Customer satisfaction is my top priority. To ensure high-quality
                                         service, I have honed my skills and principles to deliver exceptional results.
                                     </p>
@@ -239,7 +239,7 @@ function App() {
                             </div>
 
                             <div className="row d-inline-flex justify-content-center">
-                                <div ref={ref} className={`col-11 col-lg-4 ${isVisible ? 'fly-in-left' : ''}`}>
+                                <div ref={ref} className={`col-11 col-lg-4 ${!isMobile && (isVisible ? 'fly-in-left' : '')}`}>
                                     <div className="mb-3">
                                         <img src="./assets/static/icon/tool-svgrepo-com.png"
                                              style={{ width: "3rem", height: "3rem" }}/>
@@ -255,7 +255,7 @@ function App() {
                                     </p>
                                 </div>
 
-                                <div ref={ref} className={`col-11 col-lg-4 ${isVisible ? 'fly-in' : 'hidden'}`}>
+                                <div ref={ref} className={`col-11 col-lg-4 ${!isMobile && (isVisible ? 'fade-in' : '')}`}>
                                     <div className="mb-3">
                                         <img src="./assets/static/icon/database-svgrepo-com.png"
                                              style={{ width: "3rem", height: "3rem" }}/>
@@ -272,7 +272,7 @@ function App() {
                                     </p>
                                 </div>
 
-                                <div ref={ref} className={`col-11 col-lg-4 ${isVisible ? 'fly-in-right' : ''}`}>
+                                <div ref={ref} className={`col-11 col-lg-4 ${!isMobile && (isVisible ? 'fly-in-right' : '')}`}>
                                     <div className="mb-3">
                                         <img src="./assets/static/icon/monitor-svgrepo-com.png"
                                              style={{ width: "3rem", height: "3rem" }}/>
@@ -294,7 +294,7 @@ function App() {
             </div>
 
             {/*Tools that I'm using*/}
-            <div ref={ref} className={`container bg-dark mb-5 ${isVisible ? 'fly-in' : 'hidden'}`}>
+            <div ref={ref} className={`container bg-dark mb-5 ${!isMobile && (isVisible ? 'fly-in-left' : '')}`}>
                 <div className="d-flex justify-content-center mb-3">
                     <h1>Tools for Today and Beyond</h1>
                 </div>
@@ -443,14 +443,14 @@ function App() {
                 </div>
             </div>
 
-            {/*Project*/}
+            {/*Project for mobile*/}
             <h1 className="d-flex justify-content-center mb-3 h1" id="projects">The Projects I'm Proud Of</h1>
             <p className="d-flex justify-content-center explain-quote mb-3">Milestones in My Professional Journey</p>
             <div className="container bg-dark d-block d-lg-none card">
                 <div className="row">
 
                     {/*card 1*/}
-                    <div ref={ref} className={`col-lg-4 mb-4 ${isVisible ? 'fly-in-left' : ''}`}>
+                    <div className="col-lg-4 mb-4">
                         <div className="card w-100">
                             <img className="card-img-top" src="./assets/static/OAP/oap-box-logo.jpeg"
                                  alt="Card image cap"/>
@@ -478,7 +478,7 @@ function App() {
                     </div>
 
                     {/*card 2*/}
-                    <div ref={ref} className={`col-lg-4 mb-4 ${isVisible ? 'fly-in' : 'hidden'}`}>
+                    <div className="col-lg-4 mb-4">
                         <div className="card">
                             <div className="d-block align-content-center bg-dark" style={{ height: "414px" }}>
                                 <img className="card-img-top img-fluid "
@@ -508,7 +508,7 @@ function App() {
                     </div>
 
                     {/*card 3*/}
-                    <div ref={ref} className={`col-lg-4 mb-4 ${isVisible ? 'fly-in-right' : ''}`}>
+                    <div className="col-lg-4 mb-4">
                         <div className="card">
                             <div className="d-block align-content-center bg-dark" style={{ height: "414px" }}>
                                 <img className="card-img-top" src="./assets/static/EngineX/Picture1.png"
