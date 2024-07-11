@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: create .env file
+        uses:   mkim219/create-env-file@v1
         with:
           REACT_APP_EMAIL_JS_SERVICE_ID: ${{ process.env.REACT_APP_EMAIL_JS_SERVICE_ID }}
           REACT_APP_EMAIL_JS_TEMPLATE_ID: ${{  process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID }}
