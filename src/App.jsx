@@ -312,7 +312,7 @@ function App() {
 
                     <div className="col-3 col-lg-2 mr-1">
                         <div className="d-flex justify-content-center">
-                            <img src="./assets/static/icon/Csharp_logo.png"
+                            <img src="./assets/static/icon/Csharp_Logo.png"
                                  style={{ width: "3rem", height: "3rem" }}/>
                         </div>
                         <div className="d-flex justify-content-center icon-title">C#</div>
