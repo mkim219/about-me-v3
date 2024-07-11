@@ -1,5 +1,5 @@
 const path = require('path');
-
+const Dotenv = require('dotenv-webpack');
 module.exports = {
     mode: 'development',
     entry: './src/App.jsx',
@@ -38,5 +38,11 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'assets')
-    }
+    },
+    plugins: [
+        new Dotenv({
+            path: './.env', // Path to .env file
+            safe: true, // Load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
+        }),
+    ],
 }

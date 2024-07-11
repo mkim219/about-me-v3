@@ -2,7 +2,7 @@ import React from 'react';
 
 const EngineXCarRentalShop = () => {
     return (
-        <div className="container mt-5">
+        <div className="container mt-2">
             <div className="card">
                 <div className="card-header bg-dark text-white">
                     <h2>EngineX Project</h2>

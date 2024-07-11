@@ -2,7 +2,7 @@ import React from 'react';
 
 const CleantopiaExcelConverter = () => {
     return (
-        <div className="container mt-5">
+        <div className="container mt-2">
             <div className="card">
                 <div className="card-header bg-info text-white">
                     <h2>Cleantopia Excel Converter</h2>

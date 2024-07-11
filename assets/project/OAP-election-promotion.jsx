@@ -2,7 +2,7 @@ import React from 'react';
 
 const OapElectionPromotion = () => {
     return (
-        <div className="container mt-5">
+        <div className="container mt-2">
             <div className="card">
                 <div className="card-header bg-warning text-white">
                     <h2>Election Promotion Feature</h2>
