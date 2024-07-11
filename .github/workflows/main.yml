@@ -28,6 +28,12 @@ jobs:
           echo "REACT_APP_AUTO_REPLY=${{ secrets.REACT_APP_AUTO_REPLY }}" >> .env
           echo "REACT_APP_PUBLIC_KEY=${{ secrets.REACT_APP_PUBLIC_KEY }}" >> .env
 
+      - name: Check environment variables
+        run: cat .env
+
+      - name: Print all environment variables
+        run: printenv
+
       - name: Build project
         env:
           REACT_APP_EMAIL_JS_SERVICE_ID: ${{ secrets.REACT_APP_EMAIL_JS_SERVICE_ID }}
@@ -41,6 +47,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
-          
-      - name: Check environment variables
-        run: printenv
