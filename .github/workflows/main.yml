@@ -23,11 +23,11 @@ jobs:
 
       - name: Create .env file
         run: |
-          echo "REACT_APP_EMAIL_JS_SERVICE_ID=${{ secrets.REACT_APP_EMAIL_JS_SERVICE_ID }}" >> .env
-          echo "REACT_APP_EMAIL_JS_TEMPLATE_ID=${{ secrets.REACT_APP_EMAIL_JS_TEMPLATE_ID }}" >> .env
-          echo "REACT_APP_PUBLIC_KEY=${{ secrets.REACT_APP_PUBLIC_KEY }}" >> .env
-          echo "REACT_APP_PRIVATE_KEY=${{ secrets.REACT_APP_PRIVATE_KEY }}" >> .env
-          echo "REACT_APP_AUTO_REPLY=${{ secrets.REACT_APP_AUTO_REPLY }}" >> .env
+          echo "process.env.REACT_APP_EMAIL_JS_SERVICE_ID=${{ secrets.REACT_APP_EMAIL_JS_SERVICE_ID }}" >> .env
+          echo "process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID=${{ secrets.REACT_APP_EMAIL_JS_TEMPLATE_ID }}" >> .env
+          echo "process.env.REACT_APP_PUBLIC_KEY=${{ secrets.REACT_APP_PUBLIC_KEY }}" >> .env
+          echo "process.env.REACT_APP_PRIVATE_KEY=${{ secrets.REACT_APP_PRIVATE_KEY }}" >> .env
+          echo "process.env.REACT_APP_AUTO_REPLY=${{ secrets.REACT_APP_AUTO_REPLY }}" >> .env
 
       - name: Build project
         run: npm run build
