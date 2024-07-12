@@ -663,7 +663,9 @@ function App() {
 
             {/*contact me*/}
             <div className="d-inline-flex justify-content-center align-items-center w-100 bg-secondary mb-4"
-                 style={{ height: "13rem" }}>
+                 style={{ height: "13rem" }}
+                 id="contact"
+            >
                 <div className="text-center">
                     <p className="h1 mb-3 px-5"><strong>Feel free to reach out!</strong></p>
                     <button className="btn btn-outline-light border border-white btn-lg" onClick={toggleContactForm}>Contact</button>
