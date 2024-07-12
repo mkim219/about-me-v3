@@ -4,6 +4,7 @@ import 'react-tabs/style/react-tabs.css';
 import OapFuzzySearching from "../assets/project/OAP-fuzzy-searching.jsx";
 import OAPAdvancedMap from "../assets/project/OAP-advanced-map.jsx";
 import OAPElectionPromotion from "../assets/project/OAP-election-promotion.jsx";
+import OAPFacebookIntegration from "../assets/project/OAP-facebook-integration";
 
 
 const ProjectModalTab = () => {
@@ -13,6 +14,7 @@ const ProjectModalTab = () => {
                 <Tab>Fuzzy searching</Tab>
                 <Tab>Map</Tab>
                 <Tab>Election</Tab>
+                <Tab>OAuth 2.0 Integration</Tab>
             </TabList>
 
             <TabPanel>
@@ -23,6 +25,9 @@ const ProjectModalTab = () => {
             </TabPanel>
             <TabPanel>
                 <OAPElectionPromotion/>
+            </TabPanel>
+            <TabPanel>
+                <OAPFacebookIntegration/>
             </TabPanel>
         </Tabs>
     );
