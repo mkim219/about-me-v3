@@ -1,0 +1,263 @@
+{
+  "project_headers": {
+    "project_name": "Project Name",
+    "overview": "Overview",
+    "description": "Description",
+    "role_contributions": {
+      "role": "Role",
+      "responsibilities": "Responsibilities"
+    },
+    "technologies_tools": {
+      "stack": "Technologies and Tools",
+      "why_these_tools": "Why These Tools"
+    },
+    "project_features": "Project Features",
+    "challenges_solutions": "Challenges and Solutions",
+    "challenge": "Challenge",
+    "solution": "Solution",
+    "improvements_bug_fixes": {
+      "improvement": "Improvement",
+      "bug_fix": "Bug Fix"
+    },
+    "impact_results": {
+      "metrics": "Metrics",
+      "feedback": "Feedback"
+    },
+    "reflections_future_work": {
+      "lessons_learned": "Lessons Learned",
+      "future_plans": "Future Plans"
+    }
+  },
+
+  "project_detail": {
+    "fuzzy_searching": {
+      "name": "Fuzzy Searching Feature",
+      "overview": {
+        "description": "The Fuzzy Searching feature provides a robust global search capability, allowing users to find specific locations by browsing through countries, states, counties, sub-counties, and locations. The feature also supports partial searches to enhance user experience.",
+        "demo": "Advanced map demo in OAP with admin account"
+      },
+      "role_contributions": {
+        "role": "Full-Stack Developer",
+        "responsibilities": [
+          "Designed and implemented the fuzzy searching functionality",
+          "Integrated Trigram indexing for efficient fuzzy search operations",
+          "Ensured the system uses debounce to prevent request throttling",
+          "Implemented caching with SWR to avoid unnecessary subsequent requests"
+        ]
+      },
+      "technologies_tools": {
+        "stack": ["Laravel", "React", "PostgreSQL", "Trigram", "SWR"],
+        "why_these_tools": {
+          "Laravel": "Robust PHP framework for building the backend RESTful API",
+          "React": "Efficient front-end library for building a responsive user interface",
+          "PostgreSQL": "Advanced SQL database with support for Trigram indexing",
+          "Trigram": "Provides effective fuzzy searching capabilities",
+          "SWR": "React hook library for caching and revalidating data fetching"
+        }
+      },
+      "project_features": {
+        "global_search": "Allows users to perform comprehensive searches across multiple geographic levels",
+        "partial_search": "Supports partial input matching to improve search flexibility",
+        "debounce_mechanism": "Prevents request throttling by delaying input processing",
+        "result_caching": "Utilizes SWR to cache search results, reducing unnecessary requests"
+      },
+      "challenges_solutions": [
+        {
+          "challenge": "Implementing efficient fuzzy searching with high accuracy",
+          "solution": "Used Trigram indexing with a similarity threshold (e.g., 0.8 for 80% match) to control search result relevance"
+        },
+        {
+          "challenge": "Preventing request overload from rapid user input",
+          "solution": "Implemented debounce in the search input handling to limit the frequency of API calls"
+        }
+      ],
+      "improvements_bug_fixes": [
+        {
+          "improvement": "Enhanced search performance and accuracy by fine-tuning the Trigram similarity threshold"
+        },
+        {
+          "bug_fix": "Resolved issues with caching conflicts by properly configuring SWR for optimal cache management"
+        }
+      ],
+      "impact_results": {
+        "metrics": "Improved search accuracy and reduced server load due to effective caching and debouncing",
+        "feedback": "Positive user feedback on the search feature’s responsiveness and accuracy"
+      },
+      "reflections_future_work": {
+        "lessons_learned": "Gained deeper insights into implementing efficient fuzzy search algorithms and optimizing API performance with debouncing and caching",
+        "future_plans": "Plan to enhance the search feature by integrating additional filters and improving the search algorithm’s precision"
+      }
+    },
+
+    "advanced_map": {
+      "name": "Advanced Map Feature",
+      "overview": {
+        "description": "The Map feature is a Single Page Application (SPA) that allows users to interact with geographic data. It provides authenticated access, location filtering, and user-tier specific functionalities using Laravel, React, and other modern technologies.",
+        "demo": "Advanced map demo in OAP with admin account"
+      },
+      "role_contributions": {
+        "role": "Full-Stack Developer",
+        "responsibilities": [
+          "Implemented map functionality using Leaflet.",
+          "Managed authentication with Laravel Sanctum.",
+          "Set up efficient data fetching and caching with SWR.",
+          "Developed custom error messages for restricted features."
+        ]
+      },
+      "technologies_tools": {
+        "stack": "Laravel, React, Laravel Sanctum, SWR, PostgreSQL, Leaflet",
+        "why_these_tools": {
+          "Laravel": "Provides a powerful backend framework for RESTful API development.",
+          "React": "Ensures a dynamic and responsive front-end experience.",
+          "Laravel Sanctum": "Simplifies API token authentication.",
+          "SWR": "Efficiently caches and manages data fetching.",
+          "PostgreSQL": "Advanced database capabilities for geographic data.",
+          "Leaflet": "Robust library for interactive maps."
+        }
+      },
+      "project_features": {
+        "map_integration": "Interactive map using Leaflet for displaying and interacting with locations.",
+        "bounding_box_query": "Front-end sends bounding box coordinates to the backend, which queries locations within these bounds.",
+        "authentication": "Managed with Laravel Sanctum to protect routes and data.",
+        "user_tier_access": "Premium users have access to additional features, with custom HTML error messages for restricted access (e.g., 403 Forbidden).",
+        "location_filtering": "Locations can be filtered by status, level, hazard, and category.",
+        "data_loading": "Eager loading for basic location info (name, lat, lng, level) and lazy loading for detailed info (albums, comments).",
+        "debounce_and_throttle": "Implemented to manage user inputs and control request rates.",
+        "caching": "SWR caches locations to avoid redundant requests.",
+        "extra_features": "Users can navigate to specific coordinates and find their current location."
+      },
+      "challenges_solutions": [
+        {
+          "challenge": "Efficiently handling large datasets and frequent user interactions.",
+          "solution": "Implemented debounce and throttle mechanisms to control the rate of requests and interactions."
+        },
+        {
+          "challenge": "Restricting access to premium features.",
+          "solution": "Developed custom HTML error messages and used Laravel's middleware for access control."
+        }
+      ],
+      "improvements_bug_fixes": [
+        {
+          "improvement": "Optimized database queries with bounding box logic to enhance performance."
+        },
+        {
+          "bug_fix": "Resolved issues with inconsistent data fetching by properly configuring SWR and handling edge cases in the map component."
+        }
+      ],
+      "impact_results": {
+        "metrics": "Improved user engagement and performance due to efficient data handling and caching.",
+        "feedback": "Positive feedback on the map’s responsiveness and the seamless access control for premium features."
+      },
+      "reflections_future_work": {
+        "lessons_learned": "Enhanced skills in managing large datasets and implementing efficient data fetching strategies.",
+        "future_plans": "Plan to add more interactive map features, such as heatmaps and route planning."
+      }
+    }
+  },
+
+  "election": {
+    "name": "Election Feature",
+    "overview": {
+      "description": "The Election feature facilitates user promotions through a community voting system. It replaces the previous manual promotion process by admins, encouraging user participation and engagement."
+    },
+    "role_contributions": {
+      "role": "Full-Stack Developer",
+      "responsibilities": [
+        "Designed and implemented the election feature for user promotions.",
+        "Integrated user data gathering and voting mechanisms.",
+        "Implemented notification systems using the Observer design pattern.",
+        "Conducted thorough testing using the Factory design pattern and dependency injection."
+      ]
+    },
+    "technologies_tools": {
+      "stack": "Laravel, React, PHPunit, Observer Design Pattern, Factory Design Pattern, Dependency Injection",
+      "why_these_tools": {
+        "Laravel": "Provides a robust backend framework for handling business logic and database operations.",
+        "React": "Ensures a dynamic and responsive front-end experience.",
+        "PHPunit": "Essential for automated testing to ensure code quality and reliability.",
+        "Observer Design Pattern": "Facilitates notification systems for election events.",
+        "Factory Design Pattern": "Simplifies object creation in tests for more maintainable code.",
+        "Dependency Injection": "Enhances testability and flexibility of the codebase."
+      }
+    },
+    "project_features": {
+      "user_information_gathering": "Collects data on user activity, such as the number of albums, photos uploaded, and comments left.",
+      "election_participation_encouragement": "Promotes user engagement by encouraging participation in the election process.",
+      "voting_system": "Allows users to upvote or downvote candidates.",
+      "promotion_outcome": "Determines user promotion or failure based on election results after a week.",
+      "notification_system": "Sends notifications via database (internal notification), email, and Discord channel at various stages of the election process.",
+      "testing": "Conducted unit, integration, and controller testing using PHPunit, leveraging the Factory design pattern and dependency injection for mocking dependencies."
+    },
+    "challenges_solutions": [
+      {
+        "challenge": "Ensuring fair and unbiased election results.",
+        "solution": "Implemented robust voting logic and validation to prevent manipulation."
+      },
+      {
+        "challenge": "Managing real-time notifications across multiple channels.",
+        "solution": "Used the Observer design pattern to efficiently handle notifications and ensure timely updates."
+      }
+    ],
+    "improvements_bug_fixes": [
+      {
+        "improvement": "Enhanced user experience by providing clear and timely notifications about election statuses."
+      },
+      {
+        "bug_fix": "Fixed issues with vote counting and ensured accurate tallying of upvotes and downvotes."
+      }
+    ],
+    "impact_results": {
+      "metrics": "Increased user engagement and participation in the promotion process.",
+      "feedback": "Positive feedback from users appreciating the transparent and community-driven promotion system."
+    },
+    "reflections_future_work": {
+      "lessons_learned": "Gained valuable experience in implementing community-driven features and ensuring robust notification systems.",
+      "future_plans": "Plan to further optimize the election process and introduce additional engagement features."
+    }
+  },
+
+  "oAuth": {
+    "name": "OAuth Facebook Login Integration",
+    "overview": {
+      "description": "The OAuth Facebook Integration Login feature allows users to log into the application using their Facebook credentials. This feature simplifies the login process, enhances security, and improves user experience by leveraging OAuth 2.0 for authentication."
+    },
+    "role_contributions": {
+      "role": "Full-Stack Developer",
+      "responsibilities": [
+        "Designed and implemented the OAuth 2.0 authentication flow.",
+        "Integrated Facebook SDK for seamless login functionality.",
+        "Configured secure token storage and handling.",
+        "Ensured compliance with Facebook’s privacy policies and data handling guidelines."
+      ]
+    },
+    "technologies_tools": {
+      "stack": "Laravel, React, Facebook SDK, OAuth 2.0",
+      "why_these_tools": {
+        "Laravel": "Provides a robust backend framework for implementing OAuth 2.0 authentication.",
+        "React": "Ensures a dynamic and responsive user interface for the login process.",
+        "Facebook SDK": "Facilitates easy integration with Facebook’s authentication system.",
+        "OAuth 2.0": "Industry-standard protocol for authorization, ensuring secure and scalable authentication."
+      }
+    },
+    "project_features": {
+      "oauth_authentication": "Secure login via Facebook, reducing the need for traditional password-based authentication.",
+      "user_data_access": "Retrieves basic user profile information from Facebook upon successful login.",
+      "token_handling": "Securely stores and manages OAuth tokens to maintain session state and user authentication.",
+      "error_handling": "Provides clear and user-friendly error messages for failed authentication attempts."
+    },
+    "challenges_solutions": [
+      {
+        "challenge": "Ensuring secure token storage and handling.",
+        "solution": "Implemented encrypted token storage and secure handling practices to protect user data."
+      }
+    ],
+    "impact_results": {
+      "metrics": "Increased user adoption and login success rates due to the simplified authentication process.",
+      "feedback": "Positive feedback from users appreciating the ease and speed of logging in with Facebook."
+    },
+    "reflections_future_work": {
+      "lessons_learned": "Gained deeper insights into implementing secure OAuth authentication and handling third-party integrations.",
+      "future_plans": "Plan to add support for additional OAuth providers (e.g., Google, LinkedIn) to offer more login options for users."
+    }
+  }
+}

@@ -1,16 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from 'react-dom/client';
 import classNames from "classnames";
-import { TypeAnimation } from 'react-type-animation';
 import Modal from "react-modal";
 import { mobileCheck } from "./mobileDetection";
+import './i18n';
+import { useTranslation } from "react-i18next";
 
 import ContactEmail from "./ContactEmail.jsx";
 import ProjectModalTab from "./ProjectModalTab.jsx";
 import CleantopiaExcelConverter from "../assets/project/Cleantopia-excel-converter.jsx";
 import EngineXCarRentalShop from "../assets/project/EngineX-car-rental-shop.jsx";
-
-
 
 function App() {
     const [scrolled, setScrolled] = useState(false);
@@ -22,6 +21,13 @@ function App() {
     const [isContactClick, setContactClick] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef(null);
+
+    const {t, i18n } = useTranslation();
+
+    const toggleLanguage = () => {
+        const newLang = i18n.language === 'en' ? 'ko' : 'en';
+        i18n.changeLanguage(newLang);
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -114,6 +120,10 @@ function App() {
                     <a className="navbar-brand" href="#home">
                         <span className="h1 mx-4"><i className="fa-solid fa-m"/></span>
                     </a>
+                    {/*temp button*/}
+                    <button onClick={toggleLanguage} className="btn btn-outline-primary text-left">
+                        {i18n.language === 'en' ? '한국어' : 'ENG'}
+                    </button>
                     <button className="btn btn-lg text-white" onClick={toggleSideNav}>
                         <i className="fa-solid fa-bars"></i>
                     </button>
