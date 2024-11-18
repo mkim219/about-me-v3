@@ -396,6 +396,10 @@
       "lessons_learned": "Gained insights into effective Agile practices and the importance of thorough documentation and testing.",
       "future_plans": "Plan to add features like real-time notifications, more customization options, and deeper analytics integration."
     }
+  },
+
+  "about_me_footer": {
+    "about_me": "I am a passionate Full-Stack Developer with 2 years of experience in creating robust,\n user-friendly web applications.\nWith a strong foundation in technologies like Laravel, PHP, JavaScript, and C#,\nI am eager to tackle new challenges and deliver exceptional user experiences"
   }
 
 

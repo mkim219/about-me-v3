@@ -723,10 +723,7 @@ function App() {
                         <div className="col-md-4 text-white">
                             <h1 className="title-h1">About me</h1>
                             <p className="h5 text-white-50">
-                                I am a passionate Full-Stack Developer with 2 years of experience in creating robust,
-                                user-friendly web applications.
-                                With a strong foundation in technologies like Laravel, PHP, JavaScript, and C#,
-                                I am eager to tackle new challenges and deliver exceptional user experiences
+                                {t('about_me_footer.about_me')}
                             </p>
                         </div>
                     </div>
