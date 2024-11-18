@@ -112,19 +112,24 @@ function App() {
                 )}
                 style={{ zIndex: 1 }}
             >
-                <nav className="navbar navbar-dark container">
+                <nav className="navbar navbar-dark container d-flex justify-content-between">
                     <a className="navbar-brand" href="#home">
-                        <span className="h1 mx-4"><i className="fa-solid fa-m"/></span>
+                        <span className="h1 mx-4"><i className="fa-solid fa-m"></i></span>
                     </a>
-                    {/*temp button*/}
-                    <button onClick={toggleLanguage} className="btn btn-outline-primary text-left">
-                        {language === 'en' ? '한국어' : 'ENG'}
-                    </button>
-                    <button className="btn btn-lg text-white" onClick={toggleSideNav}>
-                        <i className="fa-solid fa-bars"></i>
-                    </button>
+                    {/* Center Content (if any) */}
+                    <div className="d-flex flex-grow-1 justify-content-center"></div>
+                    {/* Right Aligned Buttons */}
+                    <div className="d-flex align-items-center">
+                        <button onClick={toggleLanguage} className="btn btn-outline-primary text-left me-3">
+                            {language === 'en' ? '한국어' : 'ENG'}
+                        </button>
+                        <button className="btn btn-lg text-white" onClick={toggleSideNav}>
+                            <i className="fa-solid fa-bars"></i>
+                        </button>
+                    </div>
                 </nav>
             </div>
+
             {/*side nav*/}
             <div
                 className={classNames("position-fixed bg-dark top-50 end-0 translate-middle-y bg-light p-3 shadow h-100",
