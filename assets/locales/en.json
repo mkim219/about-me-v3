@@ -1,4 +1,39 @@
 {
+  "about-me": {
+    "trust_professionalism": "Trust and Professionalism Guaranteed",
+    "trust_professionalism_content": "Customer satisfaction is my top priority. To ensure high-quality service, I have honed my skills and principles to deliver exceptional results.",
+    "ongoing_support": "Ongoing Support",
+    "ongoing_support_content": "I will enhance your web-based software to maintain its efficiency and competitiveness. Leveraging well-established DevOps processes, I can deploy urgent updates and release new functional modules.",
+    "backend_dev": "Backend Dev",
+    "backend_dev_content": "I implement the business logic of your web application with precision on the back end, utilizing trusted frameworks for fast and high-quality coding. I also develop well-structured APIs to integrate your web app with corporate or third-party systems and services.",
+    "frontend_design_dev": "Frontend Design & Dev",
+    "frontend_design_dev_content": "I carefully analyze the target audience to understand their needs and reflect these insights in the UI design. After finalizing the look and feel of the web app with project stakeholders, I bring it to life using advanced front-end technologies."
+  },
+
+  "technologies": {
+    "header": "Sustainable Innovation Tools",
+    "backend_technologies": "Backend Technologies",
+    "frontend_technologies": "Frontend Technologies",
+    "version_control_management": "Version Control & Management"
+  },
+
+  "projects": {
+    "projects_proud_of": "Projects",
+    "professional_milestones": "Milestones that Shaped Growth",
+    "ontario_abandoned_place": {
+      "title": "Ontario Abandoned Place (OAP)",
+      "description": "OAP is a sophisticated web application platform meticulously crafted to cater to the niche interest of discovering abandoned places. By harnessing modern web technologies, OAP offers a seamless and engaging user experience, allowing users to explore a diverse range of abandoned buildings."
+    },
+    "cleantopia_excel_converter": {
+      "title": "Cleantopia Excel GUI Converter",
+      "description": "The Cleantopia Excel GUI Converter is a Windows Forms application designed to streamline the process of converting Excel files, developed with careful planning and client collaboration to create an accessible conversion application for users of varying technical levels."
+    },
+    "enginex_car_rental": {
+      "title": "EngineX Car Rental Shop",
+      "description": "Our car rental web application is designed to meet a variety of user needs, providing an intuitive and straightforward experience for booking, managing, and tracking rentals. This application stands out with its rich features and user-friendly interface."
+    }
+  },
+
   "project_headers": {
     "project_name": "Project Name",
     "overview": "Overview",
@@ -19,7 +54,9 @@
       "improvement": "Improvement",
       "bug_fix": "Bug Fix"
     },
+
     "impact_results": {
+      "impact_results": "Impact and Results",
       "metrics": "Metrics",
       "feedback": "Feedback"
     },
@@ -109,7 +146,7 @@
         "why_these_tools": {
           "Laravel": "Provides a powerful backend framework for RESTful API development.",
           "React": "Ensures a dynamic and responsive front-end experience.",
-          "Laravel Sanctum": "Simplifies API token authentication.",
+          "Laravel_sanctum": "Simplifies API token authentication.",
           "SWR": "Efficiently caches and manages data fetching.",
           "PostgreSQL": "Advanced database capabilities for geographic data.",
           "Leaflet": "Robust library for interactive maps."
@@ -175,9 +212,9 @@
         "Laravel": "Provides a robust backend framework for handling business logic and database operations.",
         "React": "Ensures a dynamic and responsive front-end experience.",
         "PHPunit": "Essential for automated testing to ensure code quality and reliability.",
-        "Observer Design Pattern": "Facilitates notification systems for election events.",
-        "Factory Design Pattern": "Simplifies object creation in tests for more maintainable code.",
-        "Dependency Injection": "Enhances testability and flexibility of the codebase."
+        "Observer": "Facilitates notification systems for election events.",
+        "Factory": "Simplifies object creation in tests for more maintainable code.",
+        "dependency_injection": "Enhances testability and flexibility of the codebase."
       }
     },
     "project_features": {
@@ -259,5 +296,107 @@
       "lessons_learned": "Gained deeper insights into implementing secure OAuth authentication and handling third-party integrations.",
       "future_plans": "Plan to add support for additional OAuth providers (e.g., Google, LinkedIn) to offer more login options for users."
     }
+  },
+
+  "cleantopia": {
+    "name": "Cleantopia Excel Converter",
+    "overview": {
+      "description": "The Cleantopia Excel Converter is a desktop application designed to assist Cleantopia in generating labels for customer clothes. This application simplifies the process of extracting necessary customer information from CSV files and converting it into a format suitable for label printing. The primary goal is to prevent mishandling of clothes by providing clear and easily identifiable labels."
+    },
+    "role_contributions": {
+      "role": "Developer",
+      "responsibilities": [
+        "Designed and implemented the GUI using C# Winforms.",
+        "Created functionality to parse CSV files and filter out unnecessary data.",
+        "Developed a user-friendly interface suitable for non-technical end users."
+      ]
+    },
+    "technologies_tools": {
+      "stack": "C#, Winforms",
+      "why_these_tools": {
+        "C#": "Provides robust support for desktop application development.",
+        "Winforms": "Simplifies the creation of graphical user interfaces in a Windows environment."
+      }
+    },
+    "project_features": {
+      "label_generation": "Converts customer information from CSV files into labels with unique identifiers.",
+      "user_friendly_interface": "Designed with non-technical users in mind, providing an intuitive and straightforward GUI.",
+      "data_filtering": "Automatically filters out unnecessary data from the CSV files, focusing on essential information like customer name and unique identifier.",
+      "preview_and_print": "Allows users to preview labels before printing and directly print them from the application."
+    },
+    "challenges_solutions": [
+      {
+        "challenge": "Ensuring the application is easy to use for non-technical staff.",
+        "solution": "Implemented an intuitive drag-and-drop interface for loading CSV files and simple buttons for processing and printing labels."
+      },
+      {
+        "challenge": "Filtering out unnecessary data from the CSV files.",
+        "solution": "Developed a parsing algorithm that extracts only the required fields (e.g., customer name, unique identifier) and ignores extraneous information."
+      }
+    ],
+    "impact_results": {
+      "metrics": "Reduced the incidence of misidentified clothes by providing clear and consistent labeling.",
+      "feedback": "Positive feedback from staff on the ease of use and reliability of the application."
+    },
+    "reflections_future_work": {
+      "lessons_learned": "Gained insights into developing user-friendly desktop applications for non-technical users.",
+      "future_plans": "Plan to add features like batch processing, more customization options for labels, and integration with label printers."
+    }
+  },
+
+  "enginex_car_rental": {
+    "name": "EngineX Project",
+    "overview": {
+      "description": "This project involved developing a web application over eight months using Agile methodology. The application connects users with service providers, offering a seamless and user-friendly experience. The primary goal was to create a robust, scalable, and secure platform."
+    },
+    "role_contributions": {
+      "role": "Developer",
+      "responsibilities": [
+        "Participated in daily Scrum meetings to track progress and address blockers.",
+        "Utilized Jira for sprint planning and task management, and BitBucket for version control.",
+        "Contributed to thorough documentation including Work Breakdown Structure, Software Requirements Specification, user manual, use cases, implementation plan, API manual, and interface mockups using Figma."
+      ]
+    },
+    "technologies_tools": {
+      "stack": "C#, .NET Framework, React",
+      "why_these_tools": {
+        "C# and .NET": "Provides a powerful and flexible backend framework, ideal for building scalable and maintainable applications.",
+        "React": "Ensures a dynamic and responsive user interface, enhancing the user experience."
+      }
+    },
+    "project_features": {
+      "user_friendly_interface": "Developed an intuitive frontend with React, ensuring ease of use for non-technical users.",
+      "robust_backend": "Implemented a secure and scalable backend using C# and .NET Framework.",
+      "documentation_and_mockups": "Created detailed documentation and interface mockups with Figma to guide development and ensure clarity.",
+      "testing": "Employed Playwright for comprehensive testing to ensure application reliability and performance."
+    },
+    "challenges_solutions": [
+      {
+        "challenge": "Coordinating a large, distributed team.",
+        "solution": "Resolved by conducting regular Scrum meetings and using Jira for effective communication and task management."
+      },
+      {
+        "challenge": "Ensuring comprehensive testing coverage.",
+        "solution": "Implemented Playwright for automated testing, ensuring all features were thoroughly tested before deployment."
+      }
+    ],
+    "improvements_bug_fixes": [
+      {
+        "improvement": "Enhanced the API to handle more concurrent users and improved the security features."
+      },
+      {
+        "bug_fix": "Resolved frontend performance issues by optimizing React components and state management."
+      }
+    ],
+    "impact_results": {
+      "metrics": "Improved user engagement and satisfaction due to the intuitive design and robust performance of the application.",
+      "feedback": "Received positive feedback from users on the ease of use and reliability of the platform."
+    },
+    "reflections_future_work": {
+      "lessons_learned": "Gained insights into effective Agile practices and the importance of thorough documentation and testing.",
+      "future_plans": "Plan to add features like real-time notifications, more customization options, and deeper analytics integration."
+    }
   }
+
+
 }

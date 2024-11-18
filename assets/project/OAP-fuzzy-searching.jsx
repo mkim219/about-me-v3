@@ -1,104 +1,94 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const OapFuzzySearching = () => {
+    const { t } = useTranslation();
+
     return (
         <div className="container mt-5">
             <div className="card">
                 <div className="card-header bg-secondary text-white">
-                    <h2>Fuzzy Searching Feature</h2>
+                    <h2>{t('project_detail.fuzzy_searching.name')}</h2>
                 </div>
                 <div className="card-body">
                     <div className="row mb-2">
-                        <img src="./assets/static/demo/fuzzy-searching-demo.gif" alt="advanced map demo in OAP with admin account"/>
+                        <img
+                            src="./assets/static/demo/fuzzy-searching-demo.gif"
+                            alt={t('project_detail.fuzzy_searching.overview.demo')}
+                        />
                     </div>
-                    <h3>Overview <span className="mx-1 h5"><a href="https://ominous.app/" target="_blank"><i
-                        className="fa-solid fa-link"></i></a></span></h3>
-                    <p>The Fuzzy Searching feature provides a robust global search capability, allowing users to find
-                        specific locations by browsing through countries, states, counties, sub-counties, and locations.
-                        The feature also supports partial searches to enhance user experience.</p>
-                    <h3>Role and Contributions</h3>
+                    <h3>
+                        {t('project_headers.overview')}
+                        <span className="mx-1 h5">
+                            <a href="https://ominous.app/" target="_blank" rel="noreferrer">
+                                <i className="fa-solid fa-link"></i>
+                            </a>
+                        </span>
+                    </h3>
+                    <p>{t('project_detail.fuzzy_searching.overview.description')}</p>
+                    <h3>{t('project_headers.role_contributions.role')}</h3>
                     <ul>
-                        <li><strong>Role:</strong> Full-Stack Developer</li>
-                        <li><strong>Responsibilities:</strong>
+                        <li><strong>{t('project_headers.role_contributions.role')}:</strong> {t('project_detail.fuzzy_searching.role_contributions.role')}</li>
+                        <li>
+                            <strong>{t('project_headers.role_contributions.responsibilities')}:</strong>
                             <ul>
-                                <li>Designed and implemented the fuzzy searching functionality.</li>
-                                <li>Integrated Trigram indexing for efficient fuzzy search operations.</li>
-                                <li>Ensured the system uses debounce to prevent request throttling.</li>
-                                <li>Implemented caching with SWR to avoid unnecessary subsequent requests.</li>
+                                <li>{t('project_detail.fuzzy_searching.role_contributions.responsibilities.0')}</li>
+                                <li>{t('project_detail.fuzzy_searching.role_contributions.responsibilities.1')}</li>
+                                <li>{t('project_detail.fuzzy_searching.role_contributions.responsibilities.2')}</li>
+                                <li>{t('project_detail.fuzzy_searching.role_contributions.responsibilities.3')}</li>
                             </ul>
                         </li>
                     </ul>
-                    <h3>Technologies and Tools</h3>
+                    <h3>{t('project_headers.technologies_tools.stack')}</h3>
                     <ul>
-                        <li><strong>Stack:</strong> Laravel, React, PostgreSQL, Trigram, SWR</li>
-                        <li><strong>Why These Tools:</strong>
+                        <li><strong>{t('project_headers.technologies_tools.stack')}:</strong> Laravel, React, PostgreSQL, Trigram, SWR</li>
+                        <li>
+                            <strong>{t('project_headers.technologies_tools.why_these_tools')}:</strong>
                             <ul>
-                                <li><strong>Laravel:</strong> Robust PHP framework for building the backend RESTful API.
-                                </li>
-                                <li><strong>React:</strong> Efficient front-end library for building a responsive user
-                                    interface.
-                                </li>
-                                <li><strong>PostgreSQL:</strong> Advanced SQL database with support for Trigram
-                                    indexing.
-                                </li>
-                                <li><strong>Trigram:</strong> Provides effective fuzzy searching capabilities.</li>
-                                <li><strong>SWR:</strong> React hook library for caching and revalidating data fetching.
-                                </li>
+                                <li><strong>Laravel:</strong> {t('project_detail.fuzzy_searching.technologies_tools.why_these_tools.Laravel')}</li>
+                                <li><strong>React:</strong> {t('project_detail.fuzzy_searching.technologies_tools.why_these_tools.React')}</li>
+                                <li><strong>PostgreSQL:</strong> {t('project_detail.fuzzy_searching.technologies_tools.why_these_tools.PostgreSQL')}</li>
+                                <li><strong>Trigram:</strong> {t('project_detail.fuzzy_searching.technologies_tools.why_these_tools.Trigram')}</li>
+                                <li><strong>SWR:</strong> {t('project_detail.fuzzy_searching.technologies_tools.why_these_tools.SWR')}</li>
                             </ul>
                         </li>
                     </ul>
-                    <h3>Project Features</h3>
+                    <h3>{t('project_headers.project_features')}</h3>
                     <ul>
-                        <li>Global Search: Allows users to perform comprehensive searches across multiple geographic
-                            levels.
-                        </li>
-                        <li>Partial Search: Supports partial input matching to improve search flexibility.</li>
-                        <li>Debounce Mechanism: Prevents request throttling by delaying input processing.</li>
-                        <li>Result Caching: Utilizes SWR to cache search results, reducing unnecessary requests.</li>
+                        <li>{t('project_detail.fuzzy_searching.project_features.global_search')}</li>
+                        <li>{t('project_detail.fuzzy_searching.project_features.partial_search')}</li>
+                        <li>{t('project_detail.fuzzy_searching.project_features.debounce_mechanism')}</li>
+                        <li>{t('project_detail.fuzzy_searching.project_features.result_caching')}</li>
                     </ul>
-                    <h3>Challenges and Solutions</h3>
+                    <h3>{t('project_headers.challenges_solutions')}</h3>
                     <ul>
-                        <li><strong>Challenge:</strong> Implementing efficient fuzzy searching with high accuracy.
+                        <li>
+                            <strong>{t('project_headers.challenge')}:</strong> {t('project_detail.fuzzy_searching.challenges_solutions.0.challenge')}
                             <ul>
-                                <li><strong>Solution:</strong> Used Trigram indexing with a similarity threshold (e.g.,
-                                    0.8 for 80% match) to control search result relevance.
-                                </li>
+                                <li><strong>{t('project_headers.solution')}:</strong> {t('project_detail.fuzzy_searching.challenges_solutions.0.solution')}</li>
                             </ul>
                         </li>
-                        <li><strong>Challenge:</strong> Preventing request overload from rapid user input.
+                        <li>
+                            <strong>{t('project_headers.challenge')}:</strong> {t('project_detail.fuzzy_searching.challenges_solutions.1.challenge')}
                             <ul>
-                                <li><strong>Solution:</strong> Implemented debounce in the search input handling to
-                                    limit the frequency of API calls.
-                                </li>
+                                <li><strong>{t('project_headers.solution')}:</strong> {t('project_detail.fuzzy_searching.challenges_solutions.1.solution')}</li>
                             </ul>
                         </li>
                     </ul>
-                    <h3>Improvements and Bug Fixes</h3>
+                    <h3>{t('project_headers.improvements_bug_fixes.improvement')}</h3>
                     <ul>
-                        <li><strong>Improvement:</strong> Enhanced search performance and accuracy by fine-tuning the
-                            Trigram similarity threshold.
-                        </li>
-                        <li><strong>Bug Fix:</strong> Resolved issues with caching conflicts by properly configuring SWR
-                            for optimal cache management.
-                        </li>
+                        <li><strong>{t('project_headers.improvements_bug_fixes.improvement')}:</strong> {t('project_detail.fuzzy_searching.improvements_bug_fixes.0.improvement')}</li>
+                        <li><strong>{t('project_headers.improvements_bug_fixes.bug_fix')}:</strong> {t('project_detail.fuzzy_searching.improvements_bug_fixes.1.bug_fix')}</li>
                     </ul>
-                    <h3>Impact and Results</h3>
+                    <h3>{t('project_headers.impact_results.impact_results')}</h3>
                     <ul>
-                        <li><strong>Metrics:</strong> Improved search accuracy and reduced server load due to effective
-                            caching and debouncing.
-                        </li>
-                        <li><strong>Feedback:</strong> Positive user feedback on the search feature’s responsiveness and
-                            accuracy.
-                        </li>
+                        <li><strong>{t('project_headers.impact_results.metrics')}:</strong> {t('project_detail.fuzzy_searching.impact_results.metrics')}</li>
+                        <li><strong>{t('project_headers.impact_results.feedback')}:</strong> {t('project_detail.fuzzy_searching.impact_results.feedback')}</li>
                     </ul>
-                    <h3>Reflections and Future Work</h3>
+                    <h3>{t('project_headers.reflections_future_work.lessons_learned')}</h3>
                     <ul>
-                        <li><strong>Lessons Learned:</strong> Gained deeper insights into implementing efficient fuzzy
-                            search algorithms and optimizing API performance with debouncing and caching.
-                        </li>
-                        <li><strong>Future Plans:</strong> Plan to enhance the search feature by integrating additional
-                            filters and improving the search algorithm’s precision.
-                        </li>
+                        <li><strong>{t('project_headers.reflections_future_work.lessons_learned')}:</strong> {t('project_detail.fuzzy_searching.reflections_future_work.lessons_learned')}</li>
+                        <li><strong>{t('project_headers.reflections_future_work.future_plans')}:</strong> {t('project_detail.fuzzy_searching.reflections_future_work.future_plans')}</li>
                     </ul>
                 </div>
             </div>

@@ -6,8 +6,11 @@ import OAPAdvancedMap from "../assets/project/OAP-advanced-map.jsx";
 import OAPElectionPromotion from "../assets/project/OAP-election-promotion.jsx";
 import OAPFacebookIntegration from "../assets/project/OAP-facebook-integration";
 
-
-const ProjectModalTab = () => {
+const ProjectModalTab = (props) => {
+    const {
+        language,
+        t,
+    } = props
     return (
         <Tabs>
             <TabList>
@@ -18,7 +21,10 @@ const ProjectModalTab = () => {
             </TabList>
 
             <TabPanel>
-                <OapFuzzySearching/>
+                <OapFuzzySearching
+                    language={language}
+                    t={t}
+                />
             </TabPanel>
             <TabPanel>
                 <OAPAdvancedMap/>

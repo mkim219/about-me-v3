@@ -1,100 +1,77 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
-const OapFacebookIntegration = props => {
+const OapFacebookIntegration = () => {
+    const { t } = useTranslation();
+    console.log(t('election.technologies_tools.why_these_tools.dependency_injection'));
     return (
         <div className="container mt-5">
             <div className="card">
                 <div className="card-header bg-primary text-white">
-                    <h2>OAuth Facebook Login Integration</h2>
+                    <h2>{t('oAuth.name')}</h2>
                 </div>
                 <div className="card-body">
-                    <h3>Overview</h3>
-                    <p>The OAuth Facebook Integration Login feature allows users to log into the application using their
-                        Facebook credentials. This feature simplifies the login process, enhances security, and improves
-                        user experience by leveraging OAuth 2.0 for authentication.</p>
-                    <h3>Role and Contributions</h3>
+                    <h3>{t('project_headers.overview')}</h3>
+                    <p>{t('oAuth.overview.description')}</p>
+
+                    <h3>{t('project_headers.role_contributions.role')}</h3>
                     <ul>
-                        <li><strong>Role:</strong> Full-Stack Developer</li>
-                        <li><strong>Responsibilities:</strong>
+                        <li><strong>{t('project_headers.role_contributions.role')}:</strong> {t('oAuth.role_contributions.role')}</li>
+                        <li><strong>{t('project_headers.role_contributions.responsibilities')}:</strong>
                             <ul>
-                                <li>Designed and implemented the OAuth 2.0 authentication flow.</li>
-                                <li>Integrated Facebook SDK for seamless login functionality.</li>
-                                <li>Configured secure token storage and handling.</li>
-                                <li>Ensured compliance with Facebook’s privacy policies and data handling guidelines.
-                                </li>
+                                <li>{t('oAuth.role_contributions.responsibilities.0')}</li>
+                                <li>{t('oAuth.role_contributions.responsibilities.1')}</li>
+                                <li>{t('oAuth.role_contributions.responsibilities.2')}</li>
+                                <li>{t('oAuth.role_contributions.responsibilities.3')}</li>
                             </ul>
                         </li>
                     </ul>
-                    <h3>Technologies and Tools</h3>
+
+                    <h3>{t('project_headers.technologies_tools.stack')}</h3>
                     <ul>
-                        <li><strong>Stack:</strong> Laravel, React, Facebook SDK, OAuth 2.0</li>
-                        <li><strong>Why These Tools:</strong>
+                        <li><strong>{t('project_headers.technologies_tools.stack')}:</strong> {t('oAuth.technologies_tools.stack')}</li>
+                        <li><strong>{t('project_headers.technologies_tools.why_these_tools')}:</strong>
                             <ul>
-                                <li><strong>Laravel:</strong> Provides a robust backend framework for implementing OAuth
-                                    2.0 authentication.
-                                </li>
-                                <li><strong>React:</strong> Ensures a dynamic and responsive user interface for the
-                                    login process.
-                                </li>
-                                <li><strong>Facebook SDK:</strong> Facilitates easy integration with Facebook’s
-                                    authentication system.
-                                </li>
-                                <li><strong>OAuth 2.0:</strong> Industry-standard protocol for authorization, ensuring
-                                    secure and scalable authentication.
-                                </li>
+                                <li><strong>Laravel:</strong> {t('oAuth.technologies_tools.why_these_tools.Laravel')}</li>
+                                <li><strong>React:</strong> {t('oAuth.technologies_tools.why_these_tools.React')}</li>
+                                <li><strong>Facebook SDK:</strong> {t('oAuth.technologies_tools.why_these_tools.Facebook SDK')}</li>
+                                <li><strong>OAuth 2.0:</strong> {t('oAuth.technologies_tools.why_these_tools.OAuth 2.0')}</li>
                             </ul>
                         </li>
                     </ul>
-                    <h3>Project Features</h3>
+
+                    <h3>{t('project_headers.project_features')}</h3>
                     <ul>
-                        <li>OAuth 2.0 Authentication: Secure login via Facebook, reducing the need for traditional
-                            password-based authentication.
-                        </li>
-                        <li>User Data Access: Retrieves basic user profile information from Facebook upon successful
-                            login.
-                        </li>
-                        <li>Token Handling: Securely stores and manages OAuth tokens to maintain session state and user
-                            authentication.
-                        </li>
-                        <li>Error Handling: Provides clear and user-friendly error messages for failed authentication
-                            attempts.
-                        </li>
+                        <li>{t('oAuth.project_features.oauth_authentication')}</li>
+                        <li>{t('oAuth.project_features.user_data_access')}</li>
+                        <li>{t('oAuth.project_features.token_handling')}</li>
+                        <li>{t('oAuth.project_features.error_handling')}</li>
                     </ul>
-                    <h3>Challenges and Solutions</h3>
+
+                    <h3>{t('project_headers.challenges_solutions')}</h3>
                     <ul>
-                        <li><strong>Challenge:</strong> Ensuring secure token storage and handling.
+                        <li><strong>{t('project_headers.challenge')}:</strong> {t('oAuth.challenges_solutions.0.challenge')}
                             <ul>
-                                <li><strong>Solution:</strong> Implemented encrypted token storage and secure handling
-                                    practices to protect user data.
-                                </li>
+                                <li><strong>{t('project_headers.solution')}:</strong> {t('oAuth.challenges_solutions.0.solution')}</li>
                             </ul>
                         </li>
                     </ul>
-                    <h3>Impact and Results</h3>
+
+                    <h3>{t('project_headers.impact_results.impact_results')}</h3>
                     <ul>
-                        <li><strong>Metrics:</strong> Increased user adoption and login success rates due to the
-                            simplified authentication process.
-                        </li>
-                        <li><strong>Feedback:</strong> Positive feedback from users appreciating the ease and speed of
-                            logging in with Facebook.
-                        </li>
+                        <li><strong>{t('project_headers.impact_results.metrics')}:</strong> {t('oAuth.impact_results.metrics')}</li>
+                        <li><strong>{t('project_headers.impact_results.feedback')}:</strong> {t('oAuth.impact_results.feedback')}</li>
                     </ul>
-                    <h3>Reflections and Future Work</h3>
+
+                    <h3>{t('project_headers.reflections_future_work.lessons_learned')}</h3>
                     <ul>
-                        <li><strong>Lessons Learned:</strong> Gained deeper insights into implementing secure OAuth
-                            authentication and handling third-party integrations.
-                        </li>
-                        <li><strong>Future Plans:</strong> Plan to add support for additional OAuth providers (e.g.,
-                            Google, LinkedIn) to offer more login options for users.
-                        </li>
+                        <li><strong>{t('project_headers.reflections_future_work.lessons_learned')}:</strong> {t('oAuth.reflections_future_work.lessons_learned')}</li>
+                        <li><strong>{t('project_headers.reflections_future_work.future_plans')}:</strong> {t('oAuth.reflections_future_work.future_plans')}</li>
                     </ul>
                 </div>
             </div>
         </div>
     );
 };
-
-OapFacebookIntegration.propTypes = {};
 
 export default OapFacebookIntegration;

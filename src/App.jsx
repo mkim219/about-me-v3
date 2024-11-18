@@ -10,6 +10,7 @@ import ContactEmail from "./ContactEmail.jsx";
 import ProjectModalTab from "./ProjectModalTab.jsx";
 import CleantopiaExcelConverter from "../assets/project/Cleantopia-excel-converter.jsx";
 import EngineXCarRentalShop from "../assets/project/EngineX-car-rental-shop.jsx";
+import useLanguageToggle from "./useLangToggle";
 
 function App() {
     const [scrolled, setScrolled] = useState(false);
@@ -21,13 +22,8 @@ function App() {
     const [isContactClick, setContactClick] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef(null);
-
-    const {t, i18n } = useTranslation();
-
-    const toggleLanguage = () => {
-        const newLang = i18n.language === 'en' ? 'ko' : 'en';
-        i18n.changeLanguage(newLang);
-    };
+    const { language, toggleLanguage } = useLanguageToggle();
+    const { t } = useTranslation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -122,7 +118,7 @@ function App() {
                     </a>
                     {/*temp button*/}
                     <button onClick={toggleLanguage} className="btn btn-outline-primary text-left">
-                        {i18n.language === 'en' ? '한국어' : 'ENG'}
+                        {language === 'en' ? '한국어' : 'ENG'}
                     </button>
                     <button className="btn btn-lg text-white" onClick={toggleSideNav}>
                         <i className="fa-solid fa-bars"></i>
@@ -196,7 +192,7 @@ function App() {
                                 programmer involved in the startup scene</h3>
                             <ul className="nav">
                                 <li className="nav-item fade-in">
-                                <a className="nav-link" href="./assets/static/Minsu-kim-resume.pdf" target="_blank">
+                                    <a className="nav-link" href="./assets/static/Minsu-kim-resume.pdf" target="_blank">
                                         <i className="fa-solid fa-file-pdf"></i>
                                     </a>
                                 </li>
@@ -238,62 +234,68 @@ function App() {
                     <div className="row mb-5">
                         <div className="col-lg-12 mb-4">
                             <div className="mb-3">
-                                <h1 ref={ref} className={`mb-2 ${!isMobile &&(isVisible ? 'fly-in-left' : '')}`}><strong>Trust and Professionalism Guaranteed</strong></h1>
+                                <h1
+                                    ref={ref}
+                                    className={`mb-2 ${!isMobile && (isVisible ? 'fly-in-left' : '')}`}
+                                >
+                                    <strong>{t('about-me.trust_professionalism')}</strong>
+                                </h1>
                                 <div className="d-inline-block justify-content-center col-lg-5 col-sm-10 mb-3">
-                                    <p ref={ref} className={`explain-quote ${!isMobile && (isVisible ? 'fly-in-right' : '')}`}>
-                                        Customer satisfaction is my top priority. To ensure high-quality
-                                        service, I have honed my skills and principles to deliver exceptional results.
+                                    <p
+                                        ref={ref}
+                                        className={`explain-quote ${!isMobile && (isVisible ? 'fly-in-right' : '')}`}
+                                    >
+                                        {t('about-me.trust_professionalism_content')}
                                     </p>
                                 </div>
                             </div>
 
                             <div className="row d-inline-flex justify-content-center">
-                                <div ref={ref} className={`col-11 col-lg-4 ${!isMobile && (isVisible ? 'fly-in-left' : '')}`}>
+                                <div
+                                    ref={ref}
+                                    className={`col-11 col-lg-4 ${!isMobile && (isVisible ? 'fly-in-left' : '')}`}
+                                >
                                     <div className="mb-3">
-                                        <img src="./assets/static/icon/tool-svgrepo-com.png"
-                                             style={{ width: "3rem", height: "3rem" }}/>
+                                        <img
+                                            src="./assets/static/icon/tool-svgrepo-com.png"
+                                            style={{ width: '3rem', height: '3rem' }}
+                                        />
                                     </div>
-                                    <h2>
-                                        Ongoing Support
-                                    </h2>
+                                    <h2>{t('about-me.ongoing_support')}</h2>
                                     <p className="explain-quote mb-2">
-                                        I will enhance your web-based software to maintain its efficiency and
-                                        competitiveness.
-                                        Leveraging well-established DevOps processes, I can deploy urgent updates and
-                                        release new functional modules.
+                                        {t('about-me.ongoing_support_content')}
                                     </p>
                                 </div>
 
-                                <div ref={ref} className={`col-11 col-lg-4 ${!isMobile && (isVisible ? 'fade-in' : '')}`}>
+                                <div
+                                    ref={ref}
+                                    className={`col-11 col-lg-4 ${!isMobile && (isVisible ? 'fade-in' : '')}`}
+                                >
                                     <div className="mb-3">
-                                        <img src="./assets/static/icon/database-svgrepo-com.png"
-                                             style={{ width: "3rem", height: "3rem" }}/>
+                                        <img
+                                            src="./assets/static/icon/database-svgrepo-com.png"
+                                            style={{ width: '3rem', height: '3rem' }}
+                                        />
                                     </div>
-                                    <h2>
-                                        Backend Dev
-                                    </h2>
+                                    <h2>{t('about-me.backend_dev')}</h2>
                                     <p className="explain-quote mb-2">
-                                        I implement the business logic of your web application with precision on the
-                                        back end,
-                                        utilizing trusted frameworks for fast and high-quality coding.
-                                        I also develop well-structured APIs to integrate your web app with corporate or
-                                        third-party systems and services.
+                                        {t('about-me.backend_dev_content')}
                                     </p>
                                 </div>
 
-                                <div ref={ref} className={`col-11 col-lg-4 ${!isMobile && (isVisible ? 'fly-in-right' : '')}`}>
+                                <div
+                                    ref={ref}
+                                    className={`col-11 col-lg-4 ${!isMobile && (isVisible ? 'fly-in-right' : '')}`}
+                                >
                                     <div className="mb-3">
-                                        <img src="./assets/static/icon/monitor-svgrepo-com.png"
-                                             style={{ width: "3rem", height: "3rem" }}/>
+                                        <img
+                                            src="./assets/static/icon/monitor-svgrepo-com.png"
+                                            style={{ width: '3rem', height: '3rem' }}
+                                        />
                                     </div>
-                                    <h2>
-                                        Frontend Design & Dev
-                                    </h2>
+                                    <h2>{t('about-me.frontend_design_dev')}</h2>
                                     <p className="explain-quote mb-2">
-                                        I carefully analyze the target audience to understand their needs and reflect
-                                        these insights in the UI design.
-                                        After finalizing the look and feel of the web app with project stakeholders, I
-                                        bring it to life using advanced front-end technologies.
+                                        {t('about-me.frontend_design_dev_content')}
                                     </p>
                                 </div>
                             </div>
@@ -305,18 +307,19 @@ function App() {
             {/*Tools that I'm using*/}
             <div ref={ref} className={`container bg-dark mb-5 ${!isMobile && (isVisible ? 'fly-in-left' : '')}`}>
                 <div className="d-flex justify-content-center mb-3">
-                    <h1>Tools for Today and Beyond</h1>
+                    <h1>{t('technologies.header')}</h1>
                 </div>
 
-                <p className="d-flex justify-content-center icon-title mb-5">Backend Technologies</p>
+                <p className="d-flex justify-content-center icon-title mb-5">{t('technologies.backend_technologies')}</p>
 
+                {/* Backend Technologies */}
                 <div className="row d-flex justify-content-center mb-5">
                     <div className="col-3 col-lg-2 mr-1">
                         <div className="d-flex justify-content-center">
                             <img src="./assets/static/icon/laravel-svgrepo-com.png"
                                  style={{ width: "3rem", height: "3rem" }}/>
                         </div>
-                        <div className="d-flex justify-content-center icon-title ">Laravel</div>
+                        <div className="d-flex justify-content-center icon-title">Laravel</div>
                     </div>
 
                     <div className="col-3 col-lg-2 mr-1">
@@ -329,8 +332,7 @@ function App() {
 
                     <div className="col-3 col-lg-2 mr-1">
                         <div className="d-flex justify-content-center">
-                            <img src="./assets/static/icon/Postgresql.png"
-                                 style={{ width: "3rem", height: "3rem" }}/>
+                            <img src="./assets/static/icon/Postgresql.png" style={{ width: "3rem", height: "3rem" }}/>
                         </div>
                         <div className="d-flex justify-content-center icon-title">PostgreSQL</div>
                     </div>
@@ -344,7 +346,6 @@ function App() {
                     </div>
                 </div>
 
-                {/*backend icons*/}
                 <div className="row d-flex justify-content-center mb-5">
                     <div className="col-3 col-lg-2 mr-1">
                         <div className="d-flex justify-content-center">
@@ -379,9 +380,9 @@ function App() {
                     </div>
                 </div>
 
-                {/*frontend icons*/}
+                {/* Frontend Technologies */}
+                <p className="d-flex justify-content-center icon-title mb-5">{t('technologies.frontend_technologies')}</p>
                 <div className="row d-flex justify-content-center mb-5">
-                    <p className="d-flex justify-content-center icon-title mb-5">Frontend Technologies</p>
                     <div className="col-3 col-lg-2 mr-1">
                         <div className="d-flex justify-content-center">
                             <img src="./assets/static/icon/react-javascript-js-framework-facebook-svgrepo-com.png"
@@ -395,7 +396,7 @@ function App() {
                             <img src="./assets/static/icon/typescript-icon-svgrepo-com.png"
                                  style={{ width: "3rem", height: "3rem" }}/>
                         </div>
-                        <div className="d-flex justify-content-center icon-title">Typescript</div>
+                        <div className="d-flex justify-content-center icon-title">TypeScript</div>
                     </div>
 
                     <div className="col-3 col-lg-2 mr-1">
@@ -415,9 +416,9 @@ function App() {
                     </div>
                 </div>
 
-                {/*version controls*/}
+                {/* Version Control & Management */}
+                <p className="d-flex justify-content-center icon-title mb-5">{t('technologies.version_control_management')}</p>
                 <div className="row d-flex justify-content-center">
-                    <p className="d-flex justify-content-center icon-title mb-5">Version Control & Management</p>
                     <div className="col-3 col-lg-2 mr-1">
                         <div className="d-flex justify-content-center">
                             <img src="./assets/static/icon/git-svgrepo-com.png"
@@ -431,7 +432,7 @@ function App() {
                             <img src="./assets/static/icon/github-color-svgrepo-com.png"
                                  style={{ width: "3rem", height: "3rem" }}/>
                         </div>
-                        <div className="d-flex justify-content-center icon-title">Github</div>
+                        <div className="d-flex justify-content-center icon-title">GitHub</div>
                     </div>
 
                     <div className="col-3 col-lg-2 mr-1">
@@ -439,7 +440,7 @@ function App() {
                             <img src="./assets/static/icon/bitbucket-svgrepo-com.png"
                                  style={{ width: "3rem", height: "3rem" }}/>
                         </div>
-                        <div className="d-flex justify-content-center icon-title">Bitbukcet</div>
+                        <div className="d-flex justify-content-center icon-title">Bitbucket</div>
                     </div>
 
                     <div className="col-3 col-lg-2 mr-1">
@@ -453,22 +454,126 @@ function App() {
             </div>
 
             {/*Project for mobile*/}
-            <h1 className="d-flex justify-content-center mb-3 h1" id="projects">The Projects I'm Proud Of</h1>
-            <p className="d-flex justify-content-center explain-quote mb-3">Milestones in My Professional Journey</p>
-            <div className="container bg-dark d-block d-lg-none card">
-                <div className="row">
+            <div>
+                <h1 className="d-flex justify-content-center mb-3 h1" id="projects">
+                    {t('projects.projects_proud_of')}
+                </h1>
+                <p className="d-flex justify-content-center explain-quote mb-3">
+                    {t('projects.professional_milestones')}
+                </p>
 
-                    {/*card 1*/}
-                    <div className="col-lg-4 mb-4">
-                        <div className="card w-100">
-                            <img className="card-img-top" src="./assets/static/OAP/oap-box-logo.jpeg"
-                                 alt="Card image cap"/>
-                            <div className="card-body">
-                                <h5 className="card-title">Ontario Abandoned Place</h5>
-                                <p className="card-text">Discover abandoned building, ghost towns, industrials, farm
-                                    houses, mansions, creepy places, and more</p>
-                                <div className="d-flex justify-content-end">
-                                    <button onClick={openModalOAP} className="btn btn-secondary">Detail</button>
+                {/* Mobile and Tablet View */}
+                <div className="container bg-dark d-block d-lg-none card">
+                    <div className="row">
+                        {/* Card 1 - Ontario Abandoned Place */}
+                        <div className="col-lg-4 mb-4">
+                            <div className="card w-100">
+                                <img className="card-img-top" src="./assets/static/OAP/oap-box-logo.jpeg"
+                                     alt="OAP logo"/>
+                                <div className="card-body">
+                                    <h5 className="card-title">{t('projects.ontario_abandoned_place.title')}</h5>
+                                    <p className="card-text">{t('projects.ontario_abandoned_place.description')}</p>
+                                    <div className="d-flex justify-content-end">
+                                        <button onClick={openModalOAP} className="btn btn-secondary">Detail</button>
+                                    </div>
+                                    <Modal
+                                        isOpen={modalOAPIsOpen}
+                                        onRequestClose={closeModal}
+                                        style={customStyles}
+                                        contentLabel="OAP Modal"
+                                    >
+                                        <div className="d-flex justify-content-end">
+                                            <button className="bg-white border-0" onClick={closeModal}>
+                                                <i className="fa-solid fa-x"></i>
+                                            </button>
+                                        </div>
+                                        <ProjectModalTab/>
+                                    </Modal>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Card 2 - Cleantopia Excel Converter */}
+                        <div className="col-lg-4 mb-4">
+                            <div className="card">
+                                <img
+                                    className="card-img-top img-fluid"
+                                    src="./assets/static/Cleantopia/cleantopia-main-photo.gif"
+                                    alt="Cleantopia demo"
+                                />
+                                <div className="card-body">
+                                    <h5 className="card-title">{t('projects.cleantopia_excel_converter.title')}</h5>
+                                    <p className="card-text">{t('projects.cleantopia_excel_converter.description')}</p>
+                                    <div className="d-flex justify-content-end">
+                                        <button onClick={openModalCleantopia} className="btn btn-secondary">Detail
+                                        </button>
+                                    </div>
+                                    <Modal
+                                        isOpen={modalCleantopiaIsOpen}
+                                        onRequestClose={closeModal}
+                                        style={customStyles}
+                                        contentLabel="Cleantopia Modal"
+                                    >
+                                        <div className="d-flex justify-content-end">
+                                            <button className="bg-white border-0" onClick={closeModal}>
+                                                <i className="fa-solid fa-x"></i>
+                                            </button>
+                                        </div>
+                                        <CleantopiaExcelConverter/>
+                                    </Modal>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Card 3 - EngineX Car Rental Shop */}
+                        <div className="col-lg-4 mb-4">
+                            <div className="card">
+                                <img className="card-img-top" src="./assets/static/EngineX/Picture1.png" alt="EngineX"/>
+                                <div className="card-body">
+                                    <h5 className="card-title">{t('projects.enginex_car_rental.title')}</h5>
+                                    <p className="card-text">{t('projects.enginex_car_rental.description')}</p>
+                                    <div className="d-flex justify-content-end">
+                                        <button onClick={openModalEngineX} className="btn btn-secondary">Detail</button>
+                                    </div>
+                                    <Modal
+                                        isOpen={modalEngineXIsOpen}
+                                        onRequestClose={closeModal}
+                                        style={customStyles}
+                                        contentLabel="EngineX Modal"
+                                    >
+                                        <div className="d-flex justify-content-end">
+                                            <button className="bg-white border-0" onClick={closeModal}>
+                                                <i className="fa-solid fa-x"></i>
+                                            </button>
+                                        </div>
+                                        <EngineXCarRentalShop/>
+                                    </Modal>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Desktop View */}
+                <div className="d-none d-md-none d-lg-block projcard-container">
+                    {/* Desktop Card 1 - OAP */}
+                    <div className="projcard projcard-blue">
+                        <div className="projcard-innerbox">
+                            <img className="projcard-img" src="./assets/static/OAP/oap-box-logo.jpeg" alt="OAP logo"/>
+                            <div className="projcard-textbox">
+                                <h1 className="projcard-title text-black">
+                                    {t('projects.ontario_abandoned_place.title')}
+                                    <span>
+                  <i onClick={openModalOAP} className="fa-solid fa-link text-secondary ml-2 cursor-pointer"></i>
+                </span>
+                                </h1>
+                                <div className="projcard-description">
+                                    {t('projects.ontario_abandoned_place.description')}
+                                </div>
+                                <div className="projcard-tagbox">
+                                    <span className="projcard-tag">Laravel</span>
+                                    <span className="projcard-tag">React.js</span>
+                                    <span className="projcard-tag">PostgreSQL</span>
                                 </div>
                                 <Modal
                                     isOpen={modalOAPIsOpen}
@@ -477,8 +582,9 @@ function App() {
                                     contentLabel="OAP Modal"
                                 >
                                     <div className="d-flex justify-content-end">
-                                        <button className="bg-white border-0" onClick={closeModal}><i
-                                            className="fa-solid fa-x"></i></button>
+                                        <button className="bg-white border-0" onClick={closeModal}>
+                                            <i className="fa-solid fa-x"></i>
+                                        </button>
                                     </div>
                                     <ProjectModalTab/>
                                 </Modal>
@@ -486,29 +592,36 @@ function App() {
                         </div>
                     </div>
 
-                    {/*card 2*/}
-                    <div className="col-lg-4 mb-4">
-                        <div className="card">
-                            <div className="d-block align-content-center bg-dark" style={{ height: "414px" }}>
-                                <img className="card-img-top img-fluid "
-                                     src="./assets/static/Cleantopia/cleantopia-main-photo.gif" alt="Card image cap"/>
-                            </div>
-                            <div className="card-body">
-                                <h5 className="card-title">Cleantopia Execl converter</h5>
-                                <p className="card-text">Desktop application developed to streamline label generation by
-                                    converting CSV file data into labels with user friendly graphical user interface</p>
-                                <div className="d-flex justify-content-end">
-                                    <button onClick={openModalCleantopia} className="btn btn-secondary">Detail</button>
+                    {/* Desktop Card 2 - Cleantopia */}
+                    <div className="projcard projcard-red">
+                        <div className="projcard-innerbox">
+                            <img className="projcard-img" src="./assets/static/Cleantopia/cleantopia-main-photo.gif"
+                                 alt="Cleantopia"/>
+                            <div className="projcard-textbox">
+                                <h1 className="projcard-title text-black">
+                                    {t('projects.cleantopia_excel_converter.title')}
+                                    <span>
+                  <i onClick={openModalCleantopia} className="fa-solid fa-link text-secondary ml-2 cursor-pointer"></i>
+                </span>
+                                </h1>
+                                <div className="projcard-description">
+                                    {t('projects.cleantopia_excel_converter.description')}
+                                </div>
+                                <div className="projcard-tagbox">
+                                    <span className="projcard-tag">C#</span>
+                                    <span className="projcard-tag">.NET</span>
+                                    <span className="projcard-tag">Winform</span>
                                 </div>
                                 <Modal
                                     isOpen={modalCleantopiaIsOpen}
                                     onRequestClose={closeModal}
                                     style={customStyles}
-                                    contentLabel="Example Modal"
+                                    contentLabel="Cleantopia Modal"
                                 >
                                     <div className="d-flex justify-content-end">
-                                        <button className="bg-white border-0" onClick={closeModal}><i
-                                            className="fa-solid fa-x"></i></button>
+                                        <button className="bg-white border-0" onClick={closeModal}>
+                                            <i className="fa-solid fa-x"></i>
+                                        </button>
                                     </div>
                                     <CleantopiaExcelConverter/>
                                 </Modal>
@@ -516,154 +629,38 @@ function App() {
                         </div>
                     </div>
 
-                    {/*card 3*/}
-                    <div className="col-lg-4 mb-4">
-                        <div className="card">
-                            <div className="d-block align-content-center bg-dark" style={{ height: "414px" }}>
-                                <img className="card-img-top" src="./assets/static/EngineX/Picture1.png"
-                                     alt="Card image cap"/>
-                            </div>
-                            <div className="card-body">
-                                <h5 className="card-title">EngineX Car Rental Shop</h5>
-                                <p className="card-text">web application platform connects car owners with individuals
-                                    looking to rent vehicles. It provides a seamless rental service </p>
-                                <div className="d-flex justify-content-end">
-                                    <button onClick={openModalEngineX} className="btn btn-secondary">Detail</button>
+                    {/* Desktop Card 3 - EngineX */}
+                    <div className="projcard projcard-green">
+                        <div className="projcard-innerbox">
+                            <img className="projcard-img" src="./assets/static/EngineX/Picture1.png" alt="EngineX"/>
+                            <div className="projcard-textbox">
+                                <h1 className="projcard-title text-black">
+                                    {t('projects.enginex_car_rental.title')}
+                                    <span>
+                                      <i onClick={openModalEngineX} className="fa-solid fa-link text-secondary ml-2 cursor-pointer"></i>
+                                    </span>
+                                </h1>
+                                <div className="projcard-description">
+                                    {t('projects.enginex_car_rental.description')}
+                                </div>
+                                <div className="projcard-tagbox">
+                                    <span className="projcard-tag">C#</span>
+                                    <span className="projcard-tag">.NET</span>
+                                    <span className="projcard-tag">React</span>
                                 </div>
                                 <Modal
                                     isOpen={modalEngineXIsOpen}
                                     onRequestClose={closeModal}
                                     style={customStyles}
-                                    contentLabel="Example Modal"
+                                    contentLabel="EngineX Modal"
                                 >
                                     <div className="d-flex justify-content-end">
-                                        <button className="bg-white border-0" onClick={closeModal}><i
-                                            className="fa-solid fa-x"></i></button>
+                                        <button className="bg-white border-0" onClick={closeModal}>
+                                            <i className="fa-solid fa-x"></i>
+                                        </button>
                                     </div>
                                     <EngineXCarRentalShop/>
                                 </Modal>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/*for browser*/}
-
-            <div  className="d-none d-md-none d-lg-block projcard-container">
-                {/*card 1*/}
-                <div className="projcard projcard-blue">
-                    <div className="projcard-innerbox">
-                        <img className="projcard-img" src="./assets/static/OAP/oap-box-logo.jpeg" alt="OAP logo"/>
-                        <div className="projcard-textbox">
-                            <div className="projcard-title text-black h1">
-                                <span className="mx-1">Ontario Abandoned Place(OAP)</span>
-                                <span>
-                                    <i onClick={openModalOAP} className="fa-solid fa-link text-secondary"></i>
-                                    <Modal
-                                        isOpen={modalOAPIsOpen}
-                                        onRequestClose={closeModal}
-                                        style={customStyles}
-                                        contentLabel="OAP Modal"
-                                    >
-                                    <div className="d-flex justify-content-end">
-                                        <button className="bg-white border-0" onClick={closeModal}><i
-                                            className="fa-solid fa-x"></i></button>
-                                    </div>
-                                    <ProjectModalTab/>
-                                </Modal>
-                                </span>
-                            </div>
-                            <div className="projcard-bar bg"></div>
-                            <div className="projcard-description">
-                                OAP is a sophisticated web application platform meticulously crafted to cater to the
-                                niche interest of discovering abandoned places.
-                                By harnessing modern web technologies, OAP offers a seamless and engaging user
-                                experience, allowing users to explore a diverse
-                                range of abandoned buildings.
-                            </div>
-                            <div className="projcard-tagbox">
-                                <span className="projcard-tag">Laravel</span>
-                                <span className="projcard-tag">React.js</span>
-                                <span className="projcard-tag">PostgreSQL</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/*card 2*/}
-                <div className="projcard projcard-red">
-                    <div className="projcard-innerbox">
-                        <img className="projcard-img" src="./assets/static/Cleantopia/cleantopia-main-photo.gif"
-                             alt="Cleantopia demo"/>
-                        <div className="projcard-textbox">
-                            <div className="projcard-title text-black h1">
-                                <span className="mx-1">Cleantopia Excel GUI Converter</span>
-                                <i onClick={openModalCleantopia} className="fa-solid fa-link text-secondary"></i>
-                                <Modal
-                                    isOpen={modalCleantopiaIsOpen}
-                                    onRequestClose={closeModal}
-                                    style={customStyles}
-                                    contentLabel="Example Modal"
-                                >
-                                    <div className="d-flex justify-content-end">
-                                        <button className="bg-white border-0" onClick={closeModal}><i
-                                            className="fa-solid fa-x"></i></button>
-                                    </div>
-                                    <CleantopiaExcelConverter/>
-                                </Modal>
-                            </div>
-                            <div className="projcard-bar"></div>
-                            <div className="projcard-description">
-                                Cleantopia Excel GUI Converter is a user-friendly Windows Forms application designed to
-                                streamline the process of transforming Excel files.
-                                Through meticulous planning and client consultations, a robust application was developed
-                                to simplify the conversion of Excel files,
-                                making it accessible to users with varying levels of technical expertise.
-                            </div>
-                            <div className="projcard-tagbox">
-                                <span className="projcard-tag">C#</span>
-                                <span className="projcard-tag">.NET</span>
-                                <span className="projcard-tag">Winform</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/*card 3*/}
-                <div className="projcard projcard-green">
-                    <div className="projcard-innerbox">
-                        <img className="projcard-img" src="./assets/static/EngineX/Picture1.png" alt="EngineX"/>
-                        <div className="projcard-textbox">
-                            <div className="projcard-title text-black h1">
-                                <span className="mx-1">EngineX Car Rental Shop</span>
-                                <span>
-                                    <i onClick={openModalEngineX} className="fa-solid fa-link text-secondary"></i>
-                                    <Modal
-                                        isOpen={modalEngineXIsOpen}
-                                        onRequestClose={closeModal}
-                                        style={customStyles}
-                                        contentLabel="Example Modal"
-                                    >
-                                        <div className="d-flex justify-content-end">
-                                            <button className="bg-white border-0" onClick={closeModal}><i
-                                                className="fa-solid fa-x"></i></button>
-                                        </div>
-                                        <EngineXCarRentalShop/>
-                                    </Modal>
-                                </span>
-
-                            </div>
-                            <div className="projcard-bar"></div>
-                            <div className="projcard-description">
-                                Our Car Rental Web Application is designed to meet the dynamic needs of users, offering
-                                a seamless and intuitive experience for managing car rentals.
-                                The application stands out for its robust features and user-friendly interface, making
-                                it easy for users to book, manage,
-                                and track their car rentals efficiently
-                            </div>
-                            <div className="projcard-tagbox">
-                                <span className="projcard-tag">C#</span>
-                                <span className="projcard-tag">.NET</span>
-                                <span className="projcard-tag">React</span>
                             </div>
                         </div>
                     </div>
@@ -678,10 +675,12 @@ function App() {
             >
                 <div className="text-center">
                     <p className="h1 mb-3 px-5"><strong>Feel free to reach out!</strong></p>
-                    <button className="btn btn-outline-light border border-white btn-lg" onClick={toggleContactForm}>Contact</button>
+                    <button className="btn btn-outline-light border border-white btn-lg"
+                            onClick={toggleContactForm}>Contact
+                    </button>
                 </div>
             </div>
-            <div className={classNames("", {"d-none" : !isContactClick})}>
+            <div className={classNames("", { "d-none": !isContactClick })}>
                 <ContactEmail/>
             </div>
             <hr className="text-white"/>
@@ -719,7 +718,8 @@ function App() {
                         <div className="col-md-4 text-white">
                             <h1 className="title-h1">About me</h1>
                             <p className="h5 text-white-50">
-                                I am a passionate Full-Stack Developer with 2 years of experience in creating robust, user-friendly web applications.
+                                I am a passionate Full-Stack Developer with 2 years of experience in creating robust,
+                                user-friendly web applications.
                                 With a strong foundation in technologies like Laravel, PHP, JavaScript, and C#,
                                 I am eager to tackle new challenges and deliver exceptional user experiences
                             </p>

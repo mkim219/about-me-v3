@@ -1,115 +1,104 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const OAPAdvancedMap = () => {
+    const { t } = useTranslation();
+
     return (
         <div className="container mt-5">
             <div className="card">
                 <div className="card-header bg-success text-white">
-                    <h2>Advanced Map Feature</h2>
+                    <h2>{t('project_detail.advanced_map.name')}</h2>
                 </div>
                 <div className="card-body">
                     <div className="row mb-2">
-                        <img src="./assets/static/demo/advanced-map-demo.gif" alt="advanced map demo in OAP with admin account"/>
+                        <img
+                            src="./assets/static/demo/advanced-map-demo.gif"
+                            alt={t('project_detail.advanced_map.overview.demo')}
+                        />
                     </div>
-                    <h3>Overview</h3>
-                    <p>The Map feature is a Single Page Application (SPA) that allows users to interact with geographic
-                        data. It provides authenticated access, location filtering, and user-tier specific
-                        functionalities using Laravel, React, and other modern technologies.</p>
-                    <h3>Role and Contributions</h3>
+                    <h3>{t('project_headers.overview')}</h3>
+                    <p>{t('project_detail.advanced_map.overview.description')}</p>
+
+                    <h3>{t('project_headers.role_contributions.role')}</h3>
                     <ul>
-                        <li><strong>Role:</strong> Full-Stack Developer</li>
-                        <li><strong>Responsibilities:</strong>
+                        <li>
+                            <strong>{t('project_headers.role_contributions.role')}:</strong> {t('project_detail.advanced_map.role_contributions.role')}
+                        </li>
+                        <li>
+                            <strong>{t('project_headers.role_contributions.responsibilities')}:</strong>
                             <ul>
-                                <li>Implemented map functionality using Leaflet.</li>
-                                <li>Managed authentication with Laravel Sanctum.</li>
-                                <li>Set up efficient data fetching and caching with SWR.</li>
-                                <li>Developed custom error messages for restricted features.</li>
+                                <li>{t('project_detail.advanced_map.role_contributions.responsibilities.0')}</li>
+                                <li>{t('project_detail.advanced_map.role_contributions.responsibilities.1')}</li>
+                                <li>{t('project_detail.advanced_map.role_contributions.responsibilities.2')}</li>
+                                <li>{t('project_detail.advanced_map.role_contributions.responsibilities.3')}</li>
                             </ul>
                         </li>
                     </ul>
-                    <h3>Technologies and Tools</h3>
+
+                    <h3>{t('project_headers.technologies_tools.stack')}</h3>
                     <ul>
-                        <li><strong>Stack:</strong> Laravel, React, Laravel Sanctum, SWR, PostgreSQL, Leaflet</li>
-                        <li><strong>Why These Tools:</strong>
+                        <li>
+                            <strong>{t('project_headers.technologies_tools.stack')}:</strong> {t('project_detail.advanced_map.technologies_tools.stack')}
+                        </li>
+                        <li>
+                            <strong>{t('project_headers.technologies_tools.why_these_tools')}:</strong>
                             <ul>
-                                <li><strong>Laravel:</strong> Provides a powerful backend framework for RESTful API
-                                    development.
-                                </li>
-                                <li><strong>React:</strong> Ensures a dynamic and responsive front-end experience.</li>
-                                <li><strong>Laravel Sanctum:</strong> Simplifies API token authentication.</li>
-                                <li><strong>SWR:</strong> Efficiently caches and manages data fetching.</li>
-                                <li><strong>PostgreSQL:</strong> Advanced database capabilities for geographic data.
-                                </li>
-                                <li><strong>Leaflet:</strong> Robust library for interactive maps.</li>
+                                <li><strong>Laravel:</strong> {t('project_detail.advanced_map.technologies_tools.why_these_tools.Laravel')}</li>
+                                <li><strong>React:</strong> {t('project_detail.advanced_map.technologies_tools.why_these_tools.React')}</li>
+                                <li><strong>Laravel Sanctum:</strong> {t('project_detail.advanced_map.technologies_tools.why_these_tools.Laravel_sanctum')}</li>
+                                <li><strong>SWR:</strong> {t('project_detail.advanced_map.technologies_tools.why_these_tools.SWR')}</li>
+                                <li><strong>PostgreSQL:</strong> {t('project_detail.advanced_map.technologies_tools.why_these_tools.PostgreSQL')}</li>
+                                <li><strong>Leaflet:</strong> {t('project_detail.advanced_map.technologies_tools.why_these_tools.Leaflet')}</li>
                             </ul>
                         </li>
                     </ul>
-                    <h3>Project Features</h3>
+
+                    <h3>{t('project_headers.project_features')}</h3>
                     <ul>
-                        <li>Map Integration: Interactive map using Leaflet for displaying and interacting with
-                            locations.
-                        </li>
-                        <li>Bounding Box Query: Front-end sends bounding box coordinates to the backend, which queries
-                            locations within these bounds.
-                        </li>
-                        <li>Authentication: Managed with Laravel Sanctum to protect routes and data.</li>
-                        <li>User-Tier Access: Premium users have access to additional features, with custom HTML error
-                            messages for restricted access (e.g., 403 Forbidden).
-                        </li>
-                        <li>Location Filtering: Locations can be filtered by status, level, hazard, and category.</li>
-                        <li>Data Loading: Eager loading for basic location info (name, lat, lng, level) and lazy loading
-                            for detailed info (albums, comments).
-                        </li>
-                        <li>Debounce and Throttle: Implemented to manage user inputs and control request rates.</li>
-                        <li>Caching: SWR caches locations to avoid redundant requests.</li>
-                        <li>Extra Features: Users can navigate to specific coordinates and find their current
-                            location.
-                        </li>
+                        <li>{t('project_detail.advanced_map.project_features.map_integration')}</li>
+                        <li>{t('project_detail.advanced_map.project_features.bounding_box_query')}</li>
+                        <li>{t('project_detail.advanced_map.project_features.authentication')}</li>
+                        <li>{t('project_detail.advanced_map.project_features.user_tier_access')}</li>
+                        <li>{t('project_detail.advanced_map.project_features.location_filtering')}</li>
+                        <li>{t('project_detail.advanced_map.project_features.data_loading')}</li>
+                        <li>{t('project_detail.advanced_map.project_features.debounce_and_throttle')}</li>
+                        <li>{t('project_detail.advanced_map.project_features.caching')}</li>
+                        <li>{t('project_detail.advanced_map.project_features.extra_features')}</li>
                     </ul>
-                    <h3>Challenges and Solutions</h3>
+
+                    <h3>{t('project_headers.challenges_solutions')}</h3>
                     <ul>
-                        <li><strong>Challenge:</strong> Efficiently handling large datasets and frequent user
-                            interactions.
+                        <li>
+                            <strong>{t('project_headers.challenge')}:</strong> {t('project_detail.advanced_map.challenges_solutions.0.challenge')}
                             <ul>
-                                <li><strong>Solution:</strong> Implemented debounce and throttle mechanisms to control
-                                    the rate of requests and interactions.
-                                </li>
+                                <li><strong>{t('project_headers.solution')}:</strong> {t('project_detail.advanced_map.challenges_solutions.0.solution')}</li>
                             </ul>
                         </li>
-                        <li><strong>Challenge:</strong> Restricting access to premium features.
+                        <li>
+                            <strong>{t('project_headers.challenge')}:</strong> {t('project_detail.advanced_map.challenges_solutions.1.challenge')}
                             <ul>
-                                <li><strong>Solution:</strong> Developed custom HTML error messages and used Laravel's
-                                    middleware for access control.
-                                </li>
+                                <li><strong>{t('project_headers.solution')}:</strong> {t('project_detail.advanced_map.challenges_solutions.1.solution')}</li>
                             </ul>
                         </li>
                     </ul>
-                    <h3>Improvements and Bug Fixes</h3>
+
+                    <h3>{t('project_headers.improvements_bug_fixes.improvement')}</h3>
                     <ul>
-                        <li><strong>Improvement:</strong> Optimized database queries with bounding box logic to enhance
-                            performance.
-                        </li>
-                        <li><strong>Bug Fix:</strong> Resolved issues with inconsistent data fetching by properly
-                            configuring SWR and handling edge cases in the map component.
-                        </li>
+                        <li><strong>{t('project_headers.improvements_bug_fixes.improvement')}:</strong> {t('project_detail.advanced_map.improvements_bug_fixes.0.improvement')}</li>
+                        <li><strong>{t('project_headers.improvements_bug_fixes.bug_fix')}:</strong> {t('project_detail.advanced_map.improvements_bug_fixes.1.bug_fix')}</li>
                     </ul>
-                    <h3>Impact and Results</h3>
+
+                    <h3>{t('project_headers.impact_results.impact_results')}</h3>
                     <ul>
-                        <li><strong>Metrics:</strong> Improved user engagement and performance due to efficient data
-                            handling and caching.
-                        </li>
-                        <li><strong>Feedback:</strong> Positive feedback on the map’s responsiveness and the seamless
-                            access control for premium features.
-                        </li>
+                        <li><strong>{t('project_headers.impact_results.metrics')}:</strong> {t('project_detail.advanced_map.impact_results.metrics')}</li>
+                        <li><strong>{t('project_headers.impact_results.feedback')}:</strong> {t('project_detail.advanced_map.impact_results.feedback')}</li>
                     </ul>
-                    <h3>Reflections and Future Work</h3>
+
+                    <h3>{t('project_headers.reflections_future_work.lessons_learned')}</h3>
                     <ul>
-                        <li><strong>Lessons Learned:</strong> Enhanced skills in managing large datasets and
-                            implementing efficient data fetching strategies.
-                        </li>
-                        <li><strong>Future Plans:</strong> Plan to add more interactive map features, such as heatmaps
-                            and route planning.
-                        </li>
+                        <li><strong>{t('project_headers.reflections_future_work.lessons_learned')}:</strong> {t('project_detail.advanced_map.reflections_future_work.lessons_learned')}</li>
+                        <li><strong>{t('project_headers.reflections_future_work.future_plans')}:</strong> {t('project_detail.advanced_map.reflections_future_work.future_plans')}</li>
                     </ul>
                 </div>
             </div>
