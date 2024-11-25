@@ -11,6 +11,7 @@ import ProjectModalTab from "./ProjectModalTab.jsx";
 import CleantopiaExcelConverter from "../assets/project/Cleantopia-excel-converter.jsx";
 import EngineXCarRentalShop from "../assets/project/EngineX-car-rental-shop.jsx";
 import useLanguageToggle from "./useLangToggle";
+import Main from "./components/Main";
 
 function App() {
     const [scrolled, setScrolled] = useState(false);
@@ -62,14 +63,15 @@ function App() {
     }, []);
 
     function openModalOAP()    {
-        setModalOAPIsOpen(true);
+        if(!modalOAPIsOpen) setModalOAPIsOpen(true);
+
     }
 
     function openModalCleantopia() {
-        setModalCleantopiaIsOpen(true);
+        if(!modalCleantopiaIsOpen) setModalCleantopiaIsOpen(true);
     }
     function openModalEngineX() {
-        setModalEngineXIsOpen(true);
+        if(!modalEngineXIsOpen) setModalEngineXIsOpen(true);
     }
 
     function closeModal() {
@@ -185,53 +187,7 @@ function App() {
             ></div>
 
             {/*main image*/}
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-12 top-banner">
-                        <div
-                            className="position-absolute top-50 start-50 translate-middle-y p-2"
-                        >
-                            <h1 className={`display-3 title-h1 ${isMobile ? 'fade-in' : 'fly-in-left'}`}>Minsu
-                                Kim</h1>
-                            <h3 className={`title-h3 ${isMobile ? 'fade-in' : 'fly-in-right'}`}>An adventurous
-                                programmer involved in the startup scene</h3>
-                            <ul className="nav">
-                                <li className="nav-item fade-in">
-                                    <a className="nav-link" href="./assets/static/Minsu-kim-resume.pdf" target="_blank">
-                                        <i className="fa-solid fa-file-pdf"></i>
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="tel:82-10-9731-9106">
-                                        <i className="fa fa-phone"></i>
-                                    </a>
-                                </li>
-                                <li className="nav-item fade-in">
-                                    <a className="nav-link" href="https://www.linkedin.com/in/minsu-kim-37a553156"
-                                       target="_blank">
-                                        <i className="fa-brands fa-linkedin"></i>
-                                    </a>
-                                </li>
-                                <li className="nav-item fade-in">
-                                    <a className="nav-link" href="https://github.com/mkim219" target="_blank">
-                                        <i className="fa-brands fa-github"></i>
-                                    </a>
-                                </li>
-                                <li className="nav-item fade-in">
-                                    <a className="nav-link" href="https://youtu.be/9NA4DgGGYWg" target="_blank">
-                                        <i className="fa-brands fa-youtube"><
-                                    /i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    className={classNames("position-absolute bottom-0 start-50 translate-middle-x mb-4", { "d-none": scrolled })}>
-                    <a href="#about-me"><i className={classNames("fa-solid fa-arrow-down fa-2x fa-beat")}></i></a>
-                </div>
-            </div>
+            <Main isMobile={isMobile} scrolled={scrolled}/>
 
             {/*what I can do*/}
             <div className="container bg-dark mt-5 mb-5" id="about-me">
@@ -484,6 +440,7 @@ function App() {
                                     <Modal
                                         isOpen={modalOAPIsOpen}
                                         onRequestClose={closeModal}
+                                        shouldCloseOnOverlayClick={true}
                                         style={customStyles}
                                         contentLabel="OAP Modal"
                                     >
@@ -516,6 +473,7 @@ function App() {
                                     <Modal
                                         isOpen={modalCleantopiaIsOpen}
                                         onRequestClose={closeModal}
+                                        shouldCloseOnOverlayClick={true}
                                         style={customStyles}
                                         contentLabel="Cleantopia Modal"
                                     >
@@ -543,6 +501,7 @@ function App() {
                                     <Modal
                                         isOpen={modalEngineXIsOpen}
                                         onRequestClose={closeModal}
+                                        shouldCloseOnOverlayClick={true}
                                         style={customStyles}
                                         contentLabel="EngineX Modal"
                                     >
@@ -563,14 +522,11 @@ function App() {
                 <div className="d-none d-md-none d-lg-block projcard-container">
                     {/* Desktop Card 1 - OAP */}
                     <div className="projcard projcard-blue">
-                        <div className="projcard-innerbox">
+                        <div className="projcard-innerbox" onClick={(e) => {e.stopPropagation(); openModalOAP();}}>
                             <img className="projcard-img" src="./assets/static/OAP/oap-box-logo.jpeg" alt="OAP logo"/>
                             <div className="projcard-textbox">
                                 <h1 className="projcard-title text-black">
                                     {t('projects.ontario_abandoned_place.title')}
-                                    <span>
-                  <i onClick={openModalOAP} className="fa-solid fa-link text-secondary ml-2 cursor-pointer"></i>
-                </span>
                                 </h1>
                                 <div className="projcard-description">
                                     {t('projects.ontario_abandoned_place.description')}
@@ -583,11 +539,17 @@ function App() {
                                 <Modal
                                     isOpen={modalOAPIsOpen}
                                     onRequestClose={closeModal}
+                                    shouldCloseOnOverlayClick={true}
                                     style={customStyles}
                                     contentLabel="OAP Modal"
                                 >
                                     <div className="d-flex justify-content-end">
-                                        <button className="bg-white border-0" onClick={closeModal}>
+                                        <button className="bg-white border-0"
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                closeModal();
+                                            }}
+                                        >
                                             <i className="fa-solid fa-x"></i>
                                         </button>
                                     </div>
@@ -599,15 +561,12 @@ function App() {
 
                     {/* Desktop Card 2 - Cleantopia */}
                     <div className="projcard projcard-red">
-                        <div className="projcard-innerbox">
+                        <div className="projcard-innerbox" onClick={openModalCleantopia}>
                             <img className="projcard-img" src="./assets/static/Cleantopia/cleantopia-main-photo.gif"
                                  alt="Cleantopia"/>
                             <div className="projcard-textbox">
                                 <h1 className="projcard-title text-black">
                                     {t('projects.cleantopia_excel_converter.title')}
-                                    <span>
-                  <i onClick={openModalCleantopia} className="fa-solid fa-link text-secondary ml-2 cursor-pointer"></i>
-                </span>
                                 </h1>
                                 <div className="projcard-description">
                                     {t('projects.cleantopia_excel_converter.description')}
@@ -620,11 +579,17 @@ function App() {
                                 <Modal
                                     isOpen={modalCleantopiaIsOpen}
                                     onRequestClose={closeModal}
+                                    shouldCloseOnOverlayClick={true}
                                     style={customStyles}
                                     contentLabel="Cleantopia Modal"
                                 >
                                     <div className="d-flex justify-content-end">
-                                        <button className="bg-white border-0" onClick={closeModal}>
+                                        <button className="bg-white border-0"
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                closeModal();
+                                            }}
+                                        >
                                             <i className="fa-solid fa-x"></i>
                                         </button>
                                     </div>
@@ -636,14 +601,11 @@ function App() {
 
                     {/* Desktop Card 3 - EngineX */}
                     <div className="projcard projcard-green">
-                        <div className="projcard-innerbox">
+                        <div className="projcard-innerbox" onClick={openModalEngineX}>
                             <img className="projcard-img" src="./assets/static/EngineX/Picture1.png" alt="EngineX"/>
                             <div className="projcard-textbox">
                                 <h1 className="projcard-title text-black">
                                     {t('projects.enginex_car_rental.title')}
-                                    <span>
-                                      <i onClick={openModalEngineX} className="fa-solid fa-link text-secondary ml-2 cursor-pointer"></i>
-                                    </span>
                                 </h1>
                                 <div className="projcard-description">
                                     {t('projects.enginex_car_rental.description')}
@@ -656,11 +618,17 @@ function App() {
                                 <Modal
                                     isOpen={modalEngineXIsOpen}
                                     onRequestClose={closeModal}
+                                    shouldCloseOnOverlayClick={true}
                                     style={customStyles}
                                     contentLabel="EngineX Modal"
                                 >
                                     <div className="d-flex justify-content-end">
-                                        <button className="bg-white border-0" onClick={closeModal}>
+                                        <button className="bg-white border-0"
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                closeModal();
+                                            }}
+                                        >
                                             <i className="fa-solid fa-x"></i>
                                         </button>
                                     </div>

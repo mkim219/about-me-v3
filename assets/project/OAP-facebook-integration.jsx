@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 
 const OapFacebookIntegration = () => {
     const { t } = useTranslation();
-    console.log(t('election.technologies_tools.why_these_tools.dependency_injection'));
     return (
         <div className="container mt-5">
             <div className="card">
