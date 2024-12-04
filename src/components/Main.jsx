@@ -7,6 +7,7 @@ const Main = props => {
     const {
         isMobile,
         scrolled,
+        language,
     } = props;
     return (
         <div className="container-fluid">
@@ -21,7 +22,7 @@ const Main = props => {
                             programmer involved in the startup scene</h3>
                         <ul className="nav">
                             <li className="nav-item fade-in">
-                                <a className="nav-link" href="./assets/static/Minsu-kim-resume.pdf" target="_blank">
+                                <a className="nav-link" href={language === 'en' ? "./assets/static/Minsu-kim-resume.pdf" : "./assets/static/Minsu-kim-resume-ko.pdf"} target="_blank">
                                     <i className="fa-solid fa-file-pdf"></i>
                                 </a>
                             </li>

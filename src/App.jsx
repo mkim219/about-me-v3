@@ -64,7 +64,6 @@ function App() {
 
     function openModalOAP()    {
         if(!modalOAPIsOpen) setModalOAPIsOpen(true);
-
     }
 
     function openModalCleantopia() {
@@ -187,7 +186,7 @@ function App() {
             ></div>
 
             {/*main image*/}
-            <Main isMobile={isMobile} scrolled={scrolled}/>
+            <Main isMobile={isMobile} scrolled={scrolled} language={language}/>
 
             {/*what I can do*/}
             <div className="container bg-dark mt-5 mb-5" id="about-me">
